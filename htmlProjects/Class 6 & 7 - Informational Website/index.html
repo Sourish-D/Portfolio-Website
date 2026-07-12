@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="./index.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/b6d7aac99c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav nav-fill">
+        <a href="index.html" class="nav-item nav-link"><h2>Information Website</h2></a>
+        <span class="nav-item nav-link" id="item1" onmouseover="Arrow(document.getElementById('Arrow1'))" onmouseout="Arrow(document.getElementById('Arrow1'))">
+            <h2>Categories <i class="fa-solid fa-angle-down" id="Arrow1"></i></h2>
+            <div id="dropdown">
+                <a href="article.html">Category 1</a> <br>
+                <a href="article1.html">Category 2</a> <br>
+                <a href="article2.html">Category 3</a> <br>
+                <a href="article3.html">Category 4</a>
+            </div>
+        </span>
+        <a href="about.html" class="nav-item nav-link"><h2>About Us</h2></a>
+        <a href="contact.html" class="nav-item nav-link"><h2>Contact Us</h2></a>
+        <a href="apply.html" class="nav-item nav-link"><h2>Become an Editor</h2></a>
+        <form class="nav-item nav-link" style="border-style:solid;">
+            <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button><input type="text" style="line-height:32px;"/>
+            <ul id="options">
+                <li class="option">Lorem</li>
+                <li class="option">Lorem</li>
+                <li class="option">Lorem</li>
+            </ul>
+        </form>
+    </nav>
+    <br>
+    <div class="container-fluid row" id="headlines">
+        <div class="col-4 block">
+            <h1>Top Headlines Today</h1>
+            <br>
+            <a href="article1.html">
+                <div class="card headline article">
+                    <h3 class=card-title>Mother in Amber Alert case was seen in B.C. grocery store on July 15, RCMP confirm</h3>
+                    <p class="card-text">Police have released new photos of a mother accused of abducting her two children, Aurora and Joshuah Bolton, who have been the subject of an Amber Alert in British Columbia since Wednesday afternoon.</p>
+                </div>
+            </a><a href="article2.html">
+                <div class="card headline article">
+                    <h3 class=card-title>Councillor's comments on Chow's age at 1st council meeting as Toronto mayor spark backlash</h3>
+                    <p class="card-text">Comments made by a Toronto city councillor about Mayor Olivia Chow's age during her first council meeting have sparked backlash.</p>
+                </div>
+            </a><a href="article3.html">
+                <div class="card headline article">
+                    <h3 class=card-title>Pizza delivery driver killed in Mississauga carjacking was lured by suspects: Peel police</h3>
+                    <p class="card-text">Police say a 24-year-old international student who was delivering food in Mississauga earlier this month was lured by suspects to the site where he was violently attacked in a deadly carjacking.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-8 block">
+            <h1>Article of the Day!</h1>
+            <br />
+            <a href="article4.html">
+                <div class="card article">
+                    <h1 class=card-title>Canadian intelligence flagged Chinese meddling 37 years ago: newly released report</h1>
+                    <hr>
+                    <img class="card-img" src="https://www.cp24.com/polopoly_fs/1.6490051.1690022920!/image/image.jpg_gen/derivatives/landscape_300/image.jpg">
+                    <hr>
+                    <p class="card-text">A newly released document shows intelligence officials have been tracking China's attempts to meddle in Canadian affairs for more than one-third of a century.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="footer">
+        <ul>
+            <li>Infopedia</li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="apply.html">Become an editor</a></li>
+        </ul>
+    </div>
+
+<script src="index.js"></script>
+</body>
+</html> 

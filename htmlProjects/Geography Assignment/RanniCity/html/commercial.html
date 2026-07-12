@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/index.css"> 
+    <script src="https://kit.fontawesome.com/b6d7aac99c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="NavBar">
+        <ul>
+            <a href="./index.html"><li>Homepage</li></a>
+            <a href="./commercial.html"><li>Commercial</li></a>
+            <a href="./news.html"><li>News</li></a>
+            <a href="./services.html"><li>Services</li></a>
+            <a href="./tourism.html"><li>Tourism</li></a>
+            <a href="./people.html"><li>People</li></a>
+        </ul>
+    </div>
+
+    <div style="width:1px;height:50px;"></div>
+
+    <div class="Modal" id="CommercialModal" style="display:none;">
+        <img height="100%" id="CommercialModalImg">
+        <button style="background-color:Transparent;border:none;"><i class="fa-solid fa-xmark" style="color:white;font-size:50px;float:right;" onclick="CloseModal()"></i></button>
+    </div>
+
+    <div class="flyers maxW flexEvenly DefaultMargin25">
+        <img onclick="OpenModal(this.src)" src="../img/Goal.png"/>
+        <img onclick="OpenModal(this.src)" src="https://media.licdn.com/dms/image/C5622AQEofBxhVE63wQ/feedshare-shrink_800/0/1621786099178?e=2147483647&v=beta&t=W6SEUfpJfeEeltVc5elpG0MeS7s_6dZUJGWtY2QAitY"/>
+        <img onclick="OpenModal(this.src)" src="https://smartcanucks.ca/wp-content/uploads/2021/03/Screen-Shot-2021-03-26-at-10.16.34-AM.png"/>
+    </div>
+
+    <div class="flyers maxW flexEvenly DefaultMargin25">
+        <img onclick="OpenModal(this.src)" src="https://hotcanadadeals.ca/wp-content/uploads/2021/11/Screen-Shot-2021-11-18-at-10.37.44-AM.png"/>
+        <img onclick="OpenModal(this.src)" src="https://smartcanucks.ca/wp-content/uploads/2020/12/Screen-Shot-2020-12-25-at-9.35.06-AM.png"/>
+        <img onclick="OpenModal(this.src)" src="https://kfor.com/wp-content/uploads/sites/3/2018/11/walmart1.jpg?w=750"/>
+    </div>
+
+    <div class="flyers maxW flexEvenly DefaultMargin25">
+        <img onclick="OpenModal(this.src)" src="https://i.insider.com/4f74710d69bedd3a5200006b?width=750&format=jpeg&auto=webp"/>
+        <img onclick="OpenModal(this.src)" src="https://savemoneyinwinnipeg.com/wp-content/uploads/2021/12/screenshot_20211218-2301577E22995835959918777885..jpg"/>
+        <img onclick="OpenModal(this.src)" src="https://i0.wp.com/discountsandsavings.ca/wp-content/uploads/2020/12/screenshot_20201221-095608_yandexmail3095293855816509436.jpg?resize=800%2C1153&ssl=1"/>
+    </div>
+
+
+    <div class="Footer">
+        <h1>EcoGlobe Solutions<sup>ⓒ</sup></h1>
+        <div class="Footer_div">
+            <ul style="width:fit-content;">
+                <li class="first_Child">Locations:</li>
+                <li><a href="./index.html">Ranni City</a></li>
+                <li><a href="../../EcoGlobeSolutions/html/Construction.html">Bobux World</a></li>
+                <li><a href="../../EcoGlobeSolutions/html/Construction.html">For Real Land</a></li>
+                <li><a href="../../EcoGlobeSolutions/html/Construction.html">[UNDER CONSTRUCTION]</a></li>
+            </ul>
+            <ul style="width:fit-content;">
+                <li class="first_Child">People:</li>
+                <li>Sourish</li>
+                <li>Niv</li>
+                <li>SGK</li>
+                <li>Chai</li>
+            </ul>
+            <ul style="width:fit-content;">
+                <li class="first_Child">Pages:</li>
+                <li><a href="./index.html">Ranni City</a>
+                    <ul>
+                        <li><a href="https://docs.google.com/document/d/1GPHvZBwMgSImIJ7jSKu91U3QvnAvMwYbPZTUqQayrlU/edit?usp=sharing">Research</a></li>
+                        <li><a href="./index.html">City Website</a>
+                            <ul>
+                                <li><a href="./index.html">Homepage</a></li>
+                                <li><a href="./commercial.html">Commercial</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./services.html">Services</a></li>
+                                <li><a href="./tourism.html">Tourism</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./people.html">People</a></li>
+                        <li><a href="#">Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../EcoGlobeSolutions/html/Construction.html">Locations</a></li>
+            </ul>
+            <div style="width:fit-content;" class="Footer_div_comment">
+                <h1>Comments or Suggestions?</h1>
+                <div style="display:flex;justify-content:space-between;">
+                    <button onclick="OpenSuggest()">Suggestion</button>
+                    <button onclick="ViewComment()">Comment</button>
+                </div>
+                <button onclick="OpenComment()">Open / Close Comment Section</button>
+            </div>
+        </div>
+    </div>
+
+<script src="../js/index.js"></script>
+</body>
+</html>

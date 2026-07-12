@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/b6d7aac99c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/index.css">
+    </head>
+    <body style="overflow-x:hidden;">
+        <section id="index_header">
+            <div id="index_header_title">
+                <img src="#" alt="logo" id="index_header_title_logo">
+                <h1 class="Title" class="index_header_title_title">EcoGlobe Solutions<sup>ⓒ</sup></h1>
+                <p class="index_header_title_quote">'Making the world greener one country at a time.'</p>
+                <div id="NavigationBar_Btn" onclick="Close('index_header_nav',this)"><i class="fa-solid fa-arrow-down"></i></div>
+            </div>
+            <div id="index_header_nav" style="display:none;">
+                <ul>
+                    <li class="index_header_nav_item"><a href="index.html">Homepage</a></li>
+                    <li class="index_header_nav_item"><a href="index.html#OurMission">Our Mission</a></li>
+                    <li class="index_header_nav_item"><a href="location.html">Locations</a></li>
+                    <li class="index_header_nav_item"><a href="Ranni.html">Our Latest <br> Project</a></li>
+                    <li class="index_header_nav_item"><a href="projects.html">Official City <br> Websites</a></li>
+                </ul>
+            </div>
+        </section>
+        <div style="width:1px;" id="div" class="animation4"></div>
+
+
+
+
+
+
+
+
+
+
+        <section class="Footer">
+            <h1>EcoGlobe Solutions<sup>ⓒ</sup></h1>
+            <div class="Footer_div">
+                <ul style="width:fit-content;">
+                    <li class="first_Child">Locations:</li>
+                    <li><a href="Ranni.html">Ranni City</a></li>
+                    <li><a href="Construction.html">Bobux World</a></li>
+                    <li><a href="Construction.html">For Real Land</a></li>
+                    <li><a href="Construction.html">[UNDER CONSTRUCTION]</a></li>
+                </ul>
+                <ul style="width:fit-content;">
+                    <li class="first_Child">People:</li>
+                    <li>Sourish</li>
+                    <li>Niv</li>
+                    <li>SGK</li>
+                    <li>Chai</li>
+                </ul>
+                <ul style="width:fit-content;">
+                    <li class="first_Child">Pages:</li>
+                    <li><a href="Ranni.html">Ranni City</a>
+                        <ul>
+                            <li><a href="#">Research</a></li>
+                            <li><a href="#">City Website</a>
+                                <ul>
+                                    <li><a href="">Homepage</a></li>
+                                    <li><a href="">Commercial</a></li>
+                                    <li><a href="">News</a></li>
+                                    <li><a href="">Services</a></li>
+                                    <li><a href="">Tourism</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">People</a></li>
+                            <li><a href="">Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Locations</a></li>
+                </ul>
+                <div style="width:fit-content;" class="Footer_div_comment">
+                    <h1>Comments or Suggestions?</h1>
+                    <div style="display:flex;justify-content:space-between;">
+                        <button onclick="OpenSuggest()">Suggestion</button>
+                        <button onclick="ViewComment()">Comment</button>
+                    </div>
+                    <button onclick="OpenComment()">Open / Close Comment Section</button>
+                </div>
+            </div>
+        </section>
+        <script src="../js/index.js"></script>
+    </body>
+</html>

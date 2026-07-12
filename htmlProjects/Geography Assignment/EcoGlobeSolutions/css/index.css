@@ -1,0 +1,466 @@
+body {
+    margin:0px;
+    background:#acb8c0;
+}
+h1 {
+    margin:0px;
+}
+
+/*Title*/
+#index_header_title {
+    width:100%;
+    background-color:#d9d9d9;
+    display:flex;
+    justify-content:space-evenly;
+    height:90px;
+    margin-bottom:15px;
+    z-index:1;
+    position:absolute;
+    border:5px solid black;
+    border-style:hidden hidden solid hidden;
+}
+#index_header_title_logo {
+    width:90px;
+    height:90px;
+    margin-right:auto;
+}
+#NavigationBar_Btn {
+    width:90px;
+    height:auto;
+    background-color:black;
+    color:white;
+    font-size:50px;
+    height:90px;
+    text-align:center;
+    line-height:90px;
+    margin-left:auto;
+}
+.Title {
+    font-size:50px;
+    line-height:75px;
+    margin:0px;
+    margin-right:100px;
+}
+.index_header_title_quote {
+    line-height:37.5px;
+    font-size:30px;
+}
+
+/*Navigation Bar*/
+@keyframes index_navbar_open {
+    from {margin-top:0px;}
+    to {margin-top:90px;}
+}
+.animation {
+    animation-name:index_navbar_open;
+    animation-duration:0.5s;
+    margin-top:0px;
+}
+@keyframes index_navbar_close {
+    from {margin-top:90px;}
+    to {margin-top:0px;}
+}
+@keyframes animation3 {
+    from {height:150px;}
+    to {height:250px;}
+}
+@keyframes animation4 {
+    from {height:250px;}
+    to {height:150px;}
+}
+.animation3 {
+    animation-name:animation3;
+    animation-duration:0.5s;
+    height:250px;
+}
+.animation4 {
+    animation-name:animation4;
+    animation-duration:0.5s;
+    height:150px;
+}
+.animation2 {
+    animation-name:index_navbar_close;
+    animation-duration:0.5s;
+    margin-top:-100px;
+}
+#index_header_nav {
+    border:5px solid black;
+    border-style:solid hidden hidden hidden;
+    background-color:#299d31;
+    position:absolute;
+    margin-top:90px;
+    width:100%;
+}
+#index_header_nav ul {
+    list-style:none;
+    display:flex;
+    margin-left:-40px;
+    margin-top:0px;
+}
+#index_header_nav li {
+    float:left;
+    padding:20px;
+    background-color:#c1ff72;
+    font-size:20px;
+    width:20%;
+    margin-left:0px;
+    text-align:center;
+    margin-bottom:-40px;
+    border:5px solid black;
+    border-width:1px 1px 5px 1px;
+}
+#index_header_nav li:hover {
+    background-color:#7ed957;
+}
+#index_header_nav li a {
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/*Index Fieldset*/
+.fieldset {
+    background-color:white;
+    border:5px solid black;
+    padding:10px;
+    width:70%;
+    margin-left:15%;
+}
+.fieldset legend {
+    background-color:white;
+    border:5px solid black;
+    padding:10px;
+    font-size:36px;
+    font-weight:Bold;
+}
+.fieldset_content p {
+    font-size:24px;
+    width:50%;
+    margin:10px;
+}
+.fieldset_content {
+    display:flex;
+}
+.fieldset:hover {
+    background-color:#d9d9d9;
+}
+.fieldset:hover legend {
+    background-color:#d9d9d9;
+}
+.fieldset_a {
+    text-decoration:none;
+    color:Black;
+}
+
+/*Paralax*/
+.paralax {
+    width:100vw;
+    height:110vh;
+    background-size:cover;
+    background-attachment:fixed;
+}
+#WhoAreWe {
+    background-image:url("../img/Us2.png");
+    position:absolute;
+    top:100%;
+    border:5px solid black;
+    border-style:solid hidden solid hidden;
+}
+.paralax .divYes {
+    background-color:white;
+    padding:20px;
+    width:500px;
+    font-size:20px;
+    border:5px solid black;
+    margin-top:200px;
+    margin-left:900px;
+}
+.paralax .divYes h1 {
+    text-align:center;
+    font-size:50px;
+    margin:0px;
+}
+.paralax .divYes hr {
+    border:2.5px solid black;
+    width:400px;
+}
+#OurMission {
+    background-image:url('../img/test2.png');
+    position:absolute;
+    top:210%;
+    border:5px solid black;
+    border-style:solid hidden solid hidden;
+}
+#OurMission h1 {
+    font-size:75px;
+    text-align:center;
+    background-color:rgba(170,170,170,0.1);
+    color:white;
+}
+.mission {
+    width:20%;
+    text-align:Center;
+    background-color:rgba(0,0,0,0.45);
+    border-radius:50px;
+    padding:20px;
+    color:white;
+    border:1px solid black;
+}
+.mission h2 {
+    font-size:40px;
+    margin:0px;
+}
+.mission hr {
+    border:2.5px solid black;
+    width:150px;
+}
+/*Footer*/
+.Footer h1 {
+    font-size:40px;
+}
+.Footer {
+    position:absolute;
+    width:100%;
+    text-align:center;
+    background-color:#a6a6a6;
+    border:5px solid black;
+    border-style:solid hidden hidden hidden;
+}
+.Footer_div {
+    display:flex;
+    justify-content:space-evenly;
+    width:100%;
+}
+.first_Child{
+    list-style:none;
+    font-weight:bold;
+    font-size:25px;
+}
+.Footer_div_comment button{
+    padding:10px;
+    font-size:20px;
+    margin:10px;
+}
+.Footer_div_comment h1 {
+    font-size:30px;
+}
+
+/*Location*/
+#LocationSlideshow {
+    width:98vw;
+    height:65vh;
+    border:5px solid black;
+    border-style:solid hidden solid hidden;
+    padding:10px;
+    position:absolute;
+    background-size:cover;
+    background-attachment: fixed;
+    margin-top:-4vh;
+}
+#LocationSlideshow h1 {
+    font-size:60px;
+    margin-top:50px;
+    margin-left:100px;
+    color:white;
+}
+#LocationSlideshow i {
+    font-size:50px;
+    color:white;
+    margin-top:12vh;
+}
+#LocationSlideshow p {
+    background-color:rgb(255,255,255);
+    width:400px;
+    padding:20px;
+    font-size:20px;
+    border:5px solid black;
+    margin-left:55vw;
+    margin-top:15vh;
+    font-weight:bold;
+}
+.Title2 {
+    font-size:75px;
+    margin:0px;
+    text-align:center;
+}
+#LocationCards {
+    display:flex;
+    justify-content: space-evenly;
+}
+.Card {
+    width:28%;
+    border:5px solid black;
+    border-radius:25px;
+    background-color:white;
+}
+.Card img {
+    width:100%;
+    height:300px;
+    border-radius:20px 20px 0px 0px;
+    border:5px solid black;
+    border-style:hidden hidden solid hidden;
+}
+.Card div {
+    padding:10px;
+    text-align:center;
+    height:200px;
+}
+.Card div h1 {
+    font-size:30px;
+}
+.Card a {
+    color:black;
+    text-decoration:none;
+}
+.Card:hover {
+    background-color:#d9d9d9;
+}
+/*The Ranni City*/
+#TheRanniCityParalax {
+    background-image:url("https://upload.wikimedia.org/wikipedia/commons/1/19/Perunthenaruvi_Pathanamthitta_%288%29.jpg");
+    position:absolute;
+    border:5px solid black;
+    border-style:solid hidden solid hidden;
+}
+#TheRanniCityParalax h1{
+    font-size:60px;
+    color:white;
+    margin-top:15vh;
+    margin-left:70vw;
+    font-weight:900;
+}
+#TheRanniCityParalax h2 {
+    font-size:50px;
+    color:white;
+    margin-top:1vh;
+    margin-left:60vw;
+    font-weight:500;
+}
+.title3 {
+    background-color:white;
+    padding:40px;
+    font-size:40px;
+    border:5px solid black;
+    border-style:solid hidden solid hidden;
+}
+.items {
+    margin-top:50px;
+    display:flex;
+    justify-content: space-evenly;
+}
+.item {
+    width:20%;
+    padding:10px;
+    text-align:center;
+}
+.item h1 {
+    font-size:40px;
+}
+.item hr {
+    border:2.5px solid black;
+    width:100px;
+}
+.item p {
+    font-size:20px;
+}
+.icon {
+    width:20vw;
+    height:20vw;
+    border-radius:4vw;
+}
+.funding {
+    background-color:White;
+    width:90vw;
+    margin-left:5vw;
+    border:5px solid black;
+    display:flex;
+    justify-content: space-evenly;
+    margin-top:50px;
+    border-radius:25px;
+    align-items:center;
+}
+.funding h1 {
+    font-size:50px;
+}
+.funding img {
+    height:150px;
+    border:5px solid black;
+    border-style:hidden solid hidden hidden;
+    padding-right:40px;
+}
+.funding p {
+    font-size:20px;
+}
+#LocationDiv {
+    background-color:white;
+    width:90vw;
+    margin-left:5vw;
+    border:5px solid black;
+    border-radius:25px;
+    display:flex;
+}
+#LocationDiv div{
+    padding:10px;
+    margin-right:auto;
+    text-align:center;
+    border:5px solid black;
+    border-style:hidden solid hidden hidden;
+    width:20%;
+    height:70vh;
+}
+#LocationDiv div h1 {
+    font-size:30px;
+}
+#LocationDiv div h2 {
+    font-size:20px;
+    margin:5px;
+    font-weight:normal;
+}
+#LocationDiv div hr {
+    border:2.5px solid black;
+    width:calc(100% + 20px);
+    margin-left:-10px;
+}
+#LocationDiv div p {
+    font-size:20px;
+}
+#PlacementDiv {
+    background-color:white;
+    border:5px solid black;
+    border-radius:0px 0px 25px 25px;
+    width:60vw;
+    margin-left:25vw;
+    margin-top:-5px;
+    text-align:center;
+    font-size:15px;
+    padding:10px 10px 5px 5px;;
+}
+#PlacementDiv:hover {
+    background-color:rgb(170,170,170);
+}
+#Placementbtn {
+    padding:20px;
+    font-size:40px;
+}
+.Project {
+    width:90vw;
+    margin-left:5vw;
+    height:50vh;
+    margin-top:10vh;
+}
+.Project h1 {
+    float:right;
+    font-size:30px;
+}
+.Project hr {
+    border:2.5px solid black;
+    width:500px;
+    float:right;
+}
+.Project img {
+    width:90vw;
+    height:45vh;
+    background-color:white;
+    border-radius:25px;
+    border:5px solid black;
+}

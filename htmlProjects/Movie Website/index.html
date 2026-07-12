@@ -1,0 +1,516 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Merriweather&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b6d7aac99c.js" crossorigin="anonymous"></script>
+<style>
+  body {
+    margin-top:5%;
+    background-color:#22254B;
+  }
+  .movies { 
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content:space-evenly;
+    margin-top:20px;
+  }
+  .movie {
+    height:30%;
+    background-color:#373B69;
+    padding:0px;
+  }
+  .movieImg {
+    width:100%;
+    height:325px;
+  }
+  .movieName {
+    color:white;
+    margin:10px;
+    font-size:15px;
+    float:left;
+    width:130px;
+    height:75px;
+    font-family: 'Merriweather', serif;
+  }
+  .rating {
+    font-size:15px;
+    background-color:#22254B;
+    color:#FFA512;
+    width:20px;
+    padding:3px;
+    float:right;
+    margin-right:40px;
+  }
+  .Overview::before {
+    font-weight:bold;
+    content:"Overview";
+    display:block;
+    margin:10px;
+    font-size:15px;
+  }
+  .Overview {
+    width:12.4%;
+    font-size:11px;
+    background-color:white;
+    padding:1%;
+    display:none;
+    margin-top:-100px;
+    position:absolute;
+    left:auto;
+    height:300px;
+    animation-name:movieAnimation2;
+    animation-duration: 1000ms;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Merriweather', serif;
+  }
+  .movie:hover .Overview {
+    display:block;
+    margin-top:-235px;
+    animation-name:movieAnimation;
+    animation-duration: 1000ms;
+  }
+  @keyframes movieAnimation {
+    from {margin-top:-100px;}
+    to {margin-top:-235px;}
+  }
+  #modal {
+    background-color:black;
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    min-height:100%;
+  }
+  .modalText {
+    color:white;
+    font-size:50px;
+  }
+  .modalText span {
+    color:black;
+  }
+  #SearchBar {
+    height:7%;
+    background-color:#22222B;
+    border:3px solid white;
+    border-style:hidden hidden solid hidden;
+    width:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+  }
+  #Search {
+    height:100%;
+    font-size:30px;
+    width:75%;
+    padding:1%;
+  }
+  .label {
+    width:71%;
+    padding:2%;
+    color:black;
+    display:none;
+    background-color:white;
+    border:3px solid black;
+    border-style:hidden hidden solid hidden;
+  }
+  .label:hover {
+    background-color:#9ADAF6;
+  }
+</style>
+</head>
+<body id="content" onload="Resized()" onresize="Resized()">
+  <div id="SearchBar">
+    <form style="float:right;padding-right:10%;">
+      <input id="Search" placeholder="Search">
+      <label class="label"></label>
+      <label class="label"></label>
+      <label class="label"></label>
+    </form>
+  </div>
+  <div id="modal" style="display:none;">
+    <center>
+      <h1 class="modalText" id="Name" style="color:white;"></h1>
+      <video width="1000px" height="auto" controls id="video"><source id="source" type="video/mp4"></video>
+      <div style="display:flex;padding-left:12.5%;padding-right:12.5%;width:75%;padding-top:3%;padding-bottom:3%;justify-content:space-evenly;margin-top:50px;background-color:rgb(155,155,155);border:5px solid white;border-style:solid hidden solid hidden;">
+      <div style="margin-right:1%;">
+      <h1 id="rating" class="modalText"></h1>
+      <p style="background-color:white;padding:20px;height:354px;font-size:larger;border-radius:50px;border:5px solid black;" id="Description"></p>
+      </div>
+      <img id="Image" style="width:auto;height:500px;border:5px solid black;">
+      </div>
+    </center>
+  </div>
+  <div id="movieRows">
+
+  </div>
+
+<script>
+  const Movies = [
+  "GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4",
+  "gigachad_leaf.mp4",
+  "NO Emoji Coming Back.mp4",
+  "OLD SPOR.mp4",
+  "The everything gc - Discord 2022-08-18 07-44-12.mp4",
+  "The everything gc - Discord 2022-08-29 22-45-31.mp4"
+
+  ,"GIF.mp4"
+  ]
+  const MovieNames = [
+    "Halloween Ends",
+    'Orphan: First Kill',
+    "Project Gemini",
+    "Fall",
+    "Spiderman",
+    "Full Metal Alchemist: The Final Alchemy",
+    "Scream (1996)",
+    "Scream 2 (1997)",
+    "Scream 3 (2000)",
+    "Scream 4 (2011)",
+    "Scream 5 (2022)",
+    "Scream 6 (2023)",
+    "Friday the 13th (1980)",
+    "Friday the 13th Part 2 (1981)",
+    "Friday the 13th Part III (1982)",
+    "Friday the 13th: The Final Chapter (1984)",
+    "Friday the 13th: A New Beginning (1985)",
+    "Friday the 13th: Part VI: Jason Lives (1986)",
+    "Friday the 13th: Part VII: The New Blood (1988)",
+    "Friday the 13th: Part VII: Jason Takes Manhattan (1989)",
+    "Jason Goes to Hell: The Final Friday (1993)",
+    "Saw (2004)",
+    "Saw II (2005)",
+    "Saw III (2006)",
+    "Saw IV (2007)",
+    "Saw V (2008)",
+    "Saw VI (2009)",
+    "Saw 3D (2010)",
+    "Jigsaw (2017)",
+    "Spiral (2021)",
+    "A Nightmare on Elm Street (1984)",
+    "A Nightmare on Elm Street Part 2: Freddy's Revenge (1985)",
+    "A Nightmare on Elm Street 3: Dream Warriors (1987)",
+    "A Nightmare on Elm Street 4: The Dream Master (1988)",
+    "A Nightmare on Elm Street 5: The Dream Child (1989)",
+    "Freddy's Dead: The Final Nightmare (1991)",
+    "Wes Craven's New Nightmare (1994)",
+    "The Conjuring (2013)",
+    "The Conjuring 2 (2016)",
+    "The Conjuring: The Devil Made Me Do it (2021)",
+    "Annabelle (2014)",
+    "Annabelle: Creation (2017)",
+    "Annabelle Comes Home (2019)"
+    ]
+  const ImageLinks = [
+  'https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Halloween_ends_poster.jpg/220px-Halloween_ends_poster.jpg',
+  'https://m.media-amazon.com/images/M/MV5BZjgwNDA3MmUtMTQ3Yy00ZDFmLTgwMTktNTBlMTQ3ZTI5MjYxXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_FMjpg_UX1000_.jpg',
+  'https://m.media-amazon.com/images/M/MV5BZWFlMTMyZjctNTcyYi00ODM2LWE1NDYtZWMyODI0MTNkMDc0XkEyXkFqcGdeQXVyNjMzNjY2NjQ@._V1_FMjpg_UX1000_.jpg' ,
+  'https://m.media-amazon.com/images/M/MV5BNGI3MWYwYjItNzZhYi00ZWIzLTkyMzYtN2JmNjg3ODg1NTg4XkEyXkFqcGdeQXVyMTMwMDA5ODU3._V1_.jpg',
+  'https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_FMjpg_UX1000_.jpg',
+  'https://www.themoviedb.org/t/p/w500/AeyiuQUUs78bPkz18FY3AzNFF8b.jpg'
+  ,"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQtWLu03bB5dBRlp70OYqeicYg9HXQ0yuaK3qZBnqACFxZ_SM5-"
+  ,"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSXIFytmY18vYuoxKAo4Y_1Kdn1EVVdp9INOcn389cWbubNC6p6",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUyWKwC126YbuyGnQjCVkSI6SRa2r5SW1FdRf2pEOky9-Tn5Iw",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTdqgCKRBJRWs13wDDcrnjE8HwYAvw4beMgSAUrYJhPHOowcx-c",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR-IaeZ6sX679wdJSb5JRNnB5DTtkL7E7SPe3B16duZGLQcqhnZ",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTGoEtN3Q1dYOOQMRLM9EZSi84znUryaJSjt1q7-E46XzWaQm_p",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSSMNML457bfLmgLiOHnVYeYGvEhIC6MmGvR3IEFX2Oukq8rClm",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRNx-Az4zlQ6p9H9RELChKUUdLmBhiUgCRy0KcBxBgNbmT13iwz",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRqgWcZCzAzg19vhGfx_LhMwMXBME9tKKtByGBnmx_YYDUmO8p5",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3qDFWs8xntRiQUV6mQY8jP6GPHQfQCeJpBhl0S_rGU8VKDgIy",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSTjLXkFgZ0FV_6blEF--wkcVioTHWrUmlmtPnGRtQvn0ZBVJOu",
+  "http://www.movienewsletters.net/photos/017845R1.jpg",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiJTPixpYHdelFVq8RsG__O-lCnEhBmhgX287D6D1FcmABTeTS",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxzjNUNzQlR3lsqH4sl3kydEnHAL8xU31LrWxhVDd6NrDTso7v",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRSTwKW6NIcAnUKCYJ62IotJCe8sfZ66DgBrZEwWkHq70OoRn1w",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS79yPneLesvIiX4yNm5hpW5HyXwLSLSzT6fTNu0GABEYlBFkDz",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2NGWYSZdsuGoFnlkBs0L0_DEfDPwifKsWRQsfjgK9laqmSTI9",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT4M7Y7KvmX4d-7284vusWcf_H220yu7iav9HMEcPeB9rfPCurx",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRY-rRAAPacJxgk5zRhP0QJKn0x7fi-2EtbNhPnSyK5mcpbbDpu",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF0ZGpvrTRcE9SL4cLcxSWBNBZcd2Gdr4qvcI3zNhww7YANPu0",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRC-mExk7RUnRX5F8XeHyy1gyn_rCe8ZerCWb80A6pg79Ezw9u5",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThCrPn-RdUMFwrnuyLM-Uz8_zTNeiykBmvjnxApf1Ri6EBA81p",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSgnmDppIrFtefb9tNLACwC4U5fsR1HXfyYqZJUpkVcBz0Il4RD",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRaC7YPzLUY29LPaMT-sUgHsgFHcKdqxOW_Tat2Pbp4vv6k5ED7",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ2RTGj6wIs_FAWBC4KCXPuvdHRnt4anbzb9i_CHuU4yl6rM6EL",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqRpAlBiy05pge8lLmznQBytSUx7Bmw2LzHfrVuci1pQ0YJpSv",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS5LcH0RlOUg0BLByeqI5G5Ny2BvYWxdjK6kfIr4Z4Xb7nhXXz6",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQF3FrbDwd6MPRGNGx9vXkauvpBpmDUMghZt6s9tn8hMU3aDLMF",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT31dG5YK2U7sAxtaGM4rLNTHnvjSWyvkPxW4tEZDDHcD2gGl4s",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT-z49EiwQl5OJVgXgQo6OYD8HvGumEzAfm7IuZiOhkPiKrfNeI",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSm8Xo3IVl0b2foDSMfwWsGhakYVsAZgiAuqpTQjA8b5UMc-oEC",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQnHDbJFDDZYC5g9gHa6-NqBE8JUet_iRIPXJym8CtaHsVQa76M",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTW7MdBhKKtzWRoy4gtHR7YZ2hv6ln1cxpZCNwnXAR8dHPDz-eO",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ0WkhDANdm4gfsieJI8gdQKnnmpnrXJtv9h5UEf6n9h1DezHc",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQOlW5oFheta_jLvWYr__R8d1D7UqR3Vy8uhC2QzcZU7s9K4wdc",
+  "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFJXO-WgGmu29wKPaaR2lPco4z3krUU_Aqiktmz4XtxGvys3Cn",
+  "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRH5gcb6HU-aQdCbv9KwD-kSWFraZaHYNFf1lRtzRHfJbIHEiEr"
+  ]
+  const Ratings = [
+    6.8,
+    6.8,
+    5.5,
+    7.4,
+    7.4,
+    6.4,
+    7.4,
+    6.3,
+    5.6,
+    6.2,
+    6.3,
+    null,
+    6.4,
+    6.1,
+    5.6,
+    6.0,
+    4.7,
+    6.0,
+    5.2,
+    4.5,
+    4.1,
+    7.6,
+    6.6,
+    6.2,
+    5.9,
+    5.8,
+    6.0,
+    5.5,
+    5.7,
+    5.2,
+    7.4,
+    5.4,
+    6.6,
+    5.6,
+    5.0,
+    4.7,
+    6.4,
+    7.5,
+    7.3,
+    6.3,
+    5.4,
+    6.5,
+    5.9
+  ]
+  const Descriptions = [
+    'Four years after the events of last year\'s Halloween Kills, Laurie is living with her granddaughter Allyson and is finishing writing her memoir. Michael Myers hasn\'t been seen since. Laurie, after allowing the specter of Michael to determine and drive her reality for decades, has decided to liberate herself from fear and rage and embrace life. But when a young man, Corey Cunningham, is accused of killing a boy he was babysitting, it ignites a cascade of violence and terror that will force Laurie to finally confront the evil she can\'t control, once and for all',
+    'Esther\'s terrifying saga continues in this thrilling prequel to the original and shocking horror hit, Orphan. After orchestrating a brilliant escape from an Estonian psychiatric facility, Esther travels to America by impersonating the missing daughter of a wealthy family. Yet, an unexpected twist arises that pits her against a mother who will protect her family from the murderous "child" at any cost.',
+    'A sci-fi thriller about a space mission sent to terraform a distant planet. However, the mission encounters something unknown that has its own plan for the planet.',
+    'Drowning in a sea of grief, 51 painful weeks after the life-altering incident that scarred her for life, emotionally fragile rock climber Becky reluctantly decides to confront her fears. And as her thrill-seeking friend Hunter re-enters Becky\'s ruined life, the two experienced climbers embark on a high-risk climbing adventure to the top of the abandoned 2,000-foot B67 TV tower: an anxiety-inducing, vertigo-inspiring construction of weather-beaten metal and rattling rivets in the middle of the Mojave desert.',
+    'Based on Marvel Comics\' superhero character, this is a story of Peter Parker who is a nerdy high-schooler. He was orphaned as a child, bullied by jocks, and can\'t confess his crush for his stunning neighborhood girl Mary Jane Watson. To say his life is "miserable" is an understatement. But one day while on an excursion to a laboratory a runaway radioactive spider bites him... and his life changes in a way no one could have imagined. Peter acquires a muscle-bound physique, clear vision, ability to cling to surfaces and crawl over walls, shooting webs from his wrist. ',
+    'The Elric brothers\' long and winding journey comes to a close in this epic finale, where they must face off against an unworldly, nationwide threat.',
+    "A year after her mother's death, Sidney Prescott (Neve Campbell) and her friends started experiencing some strange phone calls. They later learned the calls were coming from a crazed serial killer, in a white faced mask and a large black robe, looking for revenge. His phone calls usually consist of many questions, the main one being: What's your favorite scary movie? Along with much scary movie trivia, ending with bloody pieces of innocent lives scattered around the small town of Woodsboro.",
+    "Two years after the events of Scream, Sidney Prescott and Randy are attending Windsor college. They are trying to get on with their lives...Until a new Ghostface killing spree begins. With the help of Dewey and Gale, Sidney must find out who's behind the murders. As the body count goes up, the list of suspects goes down.",
+    "A new film is currently in production, and a killer is on the loose. The murders draw a reporter, ex-cop, and young woman to the set of the movie inspired by their life. They soon find out that they are dealing with a trilogy, and in a trilogy...anything can happen.",
+    "Sidney Prescott, now the author of a self-help book, returns home to Woodsboro on the last stop of her book tour. There she reconnects with Sheriff Dewey and Gale, who are now married, as well as her cousin Jill and her Aunt Kate. Unfortunately, Sidney's appearance also brings about the return of Ghostface, putting Sidney, Gale, and Dewey, along with Jill, her friends, and the whole town of Woodsboro in danger.",
+    "Like the original movie 25 years ago, a cute teenage girl is at home alone when the phone rings. A man wants to play a game with her. With the threat of killing her best friend, Tara's forced to play along. She barely survives the ghost face masked intruder's stabbing. Her 5 year older sister, Sam(antha), who left home at 18 due to mental problems, Sam's boyfriend and Tara's high school friends visit her at the hospital. Later on in a bar, a guy provokes the friends and is later attacked outside in the parking lot by Ghostface.",
+    "Following the latest Ghostface killings, the four survivors leave Woodsboro behind and start a fresh chapter. In Scream VI, Melissa Barrera (\"Sam Carpenter\"), Jasmin Savoy Brown (\"Mindy Meeks-Martin\"), Mason Gooding (\"Chad Meeks-Martin\"), Jenna Ortega (\"Tara Carpenter\"), Hayden Panettiere (\"Kirby Reed\") and Courteney Cox (\"Gale Weathers\") return to their roles in the franchise alongside Jack Champion, Henry Czerny, Liana Liberato, Dermot Mulroney, Devyn Nekoda, Tony Revolori, Josh Segarra, and Samara Weaving.—Paramount",
+    "In 1957, a young boy named Jason drowns in a lake near Camp Crystal Lake. The next year, two counselors are murdered. In 1980, a descendant of the original owners reopens Camp Crystal Lake with some counselors' help. The counselors gets killed one by one by a mysterious person. Could it be Jason, out for revenge?",
+    "Months after Alice beheaded psycho killer/mother Pamela Voorhees at Camp Crystal Lake, survivor Alice is still traumatized because of the murders. But there is one problem: Mrs. Voorhees' son Jason never drowned and died, so he saw Alice behead Mrs. Voorhees. Jason finds Alice soon and murders her. Five years later, a camp counselor-in-training program begins at Packanack Lodge, right near Camp Crystal Lake. As teenagers in the program start snooping around Camp Crystal Lake, they start getting killed violently one by one.",
+    "Jason Voorhees, having barely survived a wound to his shoulder from his own machete, is back to revenge on all that visit \"his\" woods. A new group of friends come over to party at an area close to the campsite. This time, Jason will be stronger than ever, and getting a hockey mask from one of those friends.",
+    "After being stabbed in the head by Chris Higgins. Jason Vorhees is believed to be dead and is taken to a Hospital for an Autopsy. However, He is Alive and kills a Doctor and a Nurse and is loose once more. He Returns to Camp Crystal Lake where Young Boy Tommy Jarvis lives with his Mother and Older Sister. A Group of Teenagers move in to a House next door to the Jarvis House. Jason begins killing the Teenagers and kills Tommy's Mother. It's now up to Tommy and His Older Sister to kill Jason and end his murderous rampage once and for all.",
+    "Five years after killing the goalie hockey-masked killer Jason Voorhees, Tommy Jarvis has grown up in various mental hospitals unable to get over the nightmares about Jason's return. When Tommy is sent to a rural halfway house in New Jersey for mentally disturbed teenagers, a series of grisly murders begin anew as another hockey-masked killer begins killing off all people at and around the residence. Has Jason returned from the dead to re-start his killing spree? Has Tommy decided to take over the reign of Jason, or has someone else?",
+    "Tommy Jarvis returns to the graveyard to make sure Jason Voorhees is dead and accidentally brings him back to life. Now it's up to Tommy to stop Jason's mindless killing and put him back where he belongs.",
+    "After Jason Vorhees was chained to the Bottom of Camp Crystal Lake by Tommy Jarvis. A Young Telekinetic Girl known as Tina Shepherd accidentally killed her Father with her Powers at Crystal Lake. Years Later, Tina and Her Mother return to Camp Crystal Lake, Where Tina's Doctor trys to manipulate her powers for his own evil plans. Tina then trys to ressurect Her Father but Accidentally Awakens Jason Instead. It's now up to Tina to use her Powers to Stop Jason and Her Evil Doctor.",
+    "A whole high senior class is finally graduating. For that, they get into a luxury cruise called ''Lazarus''. At the beginning they are all having fun, including our main heroine ''Rennie'' who has a serious problem with the water because of past traumatic events '' Almost got drowned when she was little''. When we get to see all the young teenagers our friend Jason who got on board the ship starts with his killing rampage until we get to see only the main characters of the movie.. ",
+    "The secret of Jason's evil is revealed. It is up to the last remaining descendant of the Voorhees family to stop Jason before he becomes immortal and unstoppable. This is the final (?) battle to end Jason's reign of terror forever.",
+    "Waking up in a bathroom, two men, Adam and Dr. Lawrence Gordon, discover they have been captured by the infamous Jigsaw Killer. The men must escape before time runs out, otherwise, they will face the deadly consequences.",
+    "Detective Eric Matthews, along with fellow police officers and a SWAT Team, locate Jigsaw's lair and go to arrest him, but discover that his arrest is only a part of Jigsaw's plan. Matthews soon learns that eight people are trapped in an old house and are playing one of Jigsaw's games.",
+    "Jeff is an anguished man who grieves and misses his son, who was killed by a drunk driver in a car accident. He has become obsessed for revenge against the drunk driver, judge, and only witness who refused to testify; he has also become neglectful of his daughter. Lynn Denlon is a skilled surgeon that is cheating on her husband and suffering from depression. ",
+    "Jigsaw and his apprentice Amanda are dead. Now, upon the news of Detective Kerry's murder, two seasoned FBI profilers, Agent Strahm and Agent Perez, arrive in the terrified community to assist the veteran Detective Hoffman in sifting through Jigsaw's latest grisly remains and piecing together the puzzle. However, when SWAT Commander Rigg is abducted and thrust into a game",
+    "Detective Mark Hoffman is deemed a hero after he saves a young girl and \"escapes\" one of Jigsaw's games, or so it seems. Special Agent Peter Strahm is suspicious of him after an injured Special Agent Lindsay Perez says Hoffman's name. Meanwhile, five people face a series of tests set up by Jigsaw.",
+    "Special Agent Strahm is dead, and Detective Hoffman has emerged as the unchallenged successor to Jigsaw's legacy. However, when the FBI draws closer to Hoffman, he is forced to set a game into motion, and Jigsaw's grand scheme is finally understood.",
+    "After trying to kill Mark Hoffman, Jill Tuck goes into protective custody. Detective Matt Gibson agrees to take her into protective custody once she signs an affidavit, revealing that Mark Hoffman is the new Jigsaw Killer. Meanwhile, Bobby Dagen, a self-proclaimed Jigsaw Survivor, is put through his own series of tests, where he must save both his friends and his wife.",
+    "It has been over a decade since Jigsaw died. However, after a new series of murders occurs, police find themselves chasing after the original Jigsaw Killer - John Kramer. Could John Kramer still be alive or is another killer out there with a different motive?",
+    "Working in the shadow of his father, an esteemed police veteran (Samuel L. Jackson), brash Detective Ezekiel \"Zeke\" Banks (Chris Rock) and his rookie partner (Max Minghella) take charge of a grisly investigation into murders that are eerily reminiscent of the city's gruesome past. ",
+    "On Elm Street, Nancy Thompson and a group of her friends (comprising Tina Gray, Rod Lane and Glen Lantz) are being tormented by a clawed killer in their dreams named Fred Krueger. Nancy must think quickly, as Fred tries to pick them off one by one. When he has you in your sleep, who is there to save you?",
+    "A new family moves into the house on Elm Street, and before long, the kids are again having nightmares about deceased child murderer Freddy Krueger. This time, Freddy attempts to possess a teenage boy to cause havoc in the real world, and can only be overcome if the boy's sweetheart can master her fear.",
+    "Picking up where the original Nightmare left off, Nancy has grown up and become a psychiatrist specializing in dream therapy. She meets a group of children at a local hospital facing Freddy Krueger, the same demon she once encountered in her sleep. One of them is Kristen, who has the power to draw other people into her dreams. ",
+    "Following up the previous Nightmare film, the dream demon Freddy Krueger is resurrected from his apparent demise, and rapidly tracks down and kills all three of the surviving Elm Street kids. However, Kristen Parker (who has the ability to draw others into her dreams) wills her special ability to her new best friend Alice Johnson before her demise. ",
+    "Alice, having survived the previous installment of the Nightmare series, finds the deadly dreams of Freddy Krueger starting once again. This time, the taunting murderer is striking through the sleeping mind of Alice's unborn child. His intention is to be \"born again\" into the real world. The only one who can stop Freddy is his dead mother, but can Alice free her spirit in time to save her own son?",
+    "In part six of the Nightmare on Elm Street series, dream monster Freddy Krueger has finally killed all the children of his hometown, and seeks to escape its confines to hunt fresh prey. To this end, he recruits the aid of his (previously unmentioned) daughter.",
+    "It's nearing the 10th Anniversary of the film 'A Nightmare on Elm Street' and one of the stars, Heather Langenkamp is being scared by a voice on a phone, sounding very similar to the film's villain, Freddy Krueger. When Heather's husband is killed in a car accident and is discovered with slash marks on him, Heather starts to wonder something.",
+    "In 1971, Carolyn and Roger Perron move their family into a dilapidated Rhode Island farm house and soon strange things start happening around it with escalating nightmarish terror. In desperation, Carolyn contacts the noted paranormal investigators, Ed and Lorraine Warren, to examine the house. What the Warrens discover is a whole area steeped in a satanic haunting that is now targeting the Perron family wherever they go. ",
+    "In 1977, paranormal investigators Ed and Lorraine Warren travel to London, England, where single mother Peggy Hodgson believes that something evil is in her home. When Peggy's youngest daughter starts showing signs of demonic possession, Ed and Lorraine attempt to help the besieged girl, only to find themselves targeted by the malicious spirits.",
+    "A chilling story of terror, murder and unknown evil that shocked even experienced real-life paranormal investigators Ed and Lorraine Warren. One of the most sensational cases from their files, it starts with a fight for the soul of a young boy, then takes them beyond anything they'd ever seen before, to mark the first time in U.S. history that a murder suspect would claim demonic possession as a defense.",
+    "John Form has found the perfect gift for his expectant wife, Mia - a beautiful, rare vintage doll in a pure white wedding dress. But Mia's delight with Annabelle doesn't last long. On one horrific night, their home is invaded by members of a satanic cult, who violently attack the couple. Spilled blood and terror are not all they leave behind. The cultists have conjured an entity so malevolent that nothing they did will compare to the sinister conduit to the damned that is now... Annabelle.",
+    "Doll manufacturer Samuel Mullins is a happy family man with his wife Esther and their daughter Bee--until she dies after being hit by a car. Twelve years later, Samuel and Esther welcomes a nun and six orphaned girls to his home. He tells them that only a locked room (that belonged to Bee) and Esther's room would be off-limits for the girls. ",
+    "Determined to keep Annabelle from wreaking more havoc, demonologists Ed and Lorraine Warren bring the possessed doll to the locked artifacts room in their home, placing her \"safely\" behind sacred glass and enlisting a priest's holy blessing. But an unholy night of horror awaits as Annabelle awakens the evil spirits in the room, who all set their sights on a new target--the Warrens' ten-year-old daughter, Judy, and her friends."
+  ]
+  function CreateAMovieDiv(Number) {
+    let Div = document.createElement("div");
+    Div.className="movies "+Number;
+    return Div;
+  }
+  function CreateAMovie(MovieName, MovieImgURL, Rating, Overview, Number) {
+    let BigDiv = document.createElement("div");
+    BigDiv.className="movie";
+    BigDiv.setAttribute("onclick",'OpenMovie('+Number+')');
+    let Img = document.createElement("img");
+    Img.className="movieImg";
+    Img.src=MovieImgURL;
+    BigDiv.appendChild(Img);
+    let Name = document.createElement("p");
+    Name.className="movieName";
+    let NameText = document.createTextNode(MovieName);
+    Name.appendChild(NameText);
+    BigDiv.appendChild(Name);
+    let rating = document.createElement("h1");
+    rating.className="rating";
+    let ratingText = document.createTextNode(Rating);
+    rating.appendChild(ratingText);
+    BigDiv.appendChild(rating)
+    let overview = document.createElement("div");
+    overview.className="Overview";
+    let overviewText = document.createTextNode(Overview);
+    overview.appendChild(overviewText);
+    BigDiv.appendChild(overview);
+    return BigDiv;
+  }
+  let f;
+  function CheckScreenSize() {
+    let MonitorX = window.innerWidth;
+    if (MonitorX>1450) {
+      f = 15;
+      return 6;
+    } else if (MonitorX>1000) {
+      f = 18;
+      return 5;
+    } else if (MonitorX>750) {
+      f = 23;
+      return 4;
+    } else if (MonitorX>500) {
+      f = 30;
+      return 3;
+    } else if (MonitorX>250) {
+      f = 47;
+      return 2;
+    } else if (MonitorX>0) {
+      f = 90;
+      return 1;
+    }
+  }
+  function Resized() {
+    var q = CheckScreenSize();
+    let AmountOfMovies = Math.ceil((MovieNames.length)/q) 
+    document.getElementById("movieRows").innerHTML="";
+    for (let i = 0; i<AmountOfMovies; i++) {
+      document.getElementById("movieRows").appendChild(CreateAMovieDiv(i));
+    }
+    for (let i = 0; i<MovieNames.length; i++) {
+      document.getElementsByClassName("movies")[Math.floor(i/q)].appendChild(CreateAMovie(MovieNames[i],ImageLinks[i],Ratings[i],Descriptions[i],i));
+      document.getElementsByClassName("movie")[i].style.width=f+"%";
+      document.getElementsByClassName("Overview")[i].style.width=f-2.2+"%";
+    }
+  }
+  function CloseModal() {
+    document.getElementById("modal").style.display="none";
+    let MovieRows = document.getElementsByClassName("movies");
+    for (let i = 0; i < MovieRows.length; i++) {
+      MovieRows[i].style.display="flex";
+    }
+    document.getElementById("Search").value="";
+  }
+  function OpenMovie(a) {
+    document.getElementById("modal").style.display="block";
+    document.getElementById("source").src=Movies[a];
+    document.getElementById("video").load();
+    document.getElementById("video").play();
+    document.getElementById("Name").innerHTML=MovieNames[a] + " &nbsp; &nbsp; <i onclick='CloseModal()' class='fa-solid fa-square-xmark'></i>";
+    document.getElementById("rating").innerHTML="<span>Rating: </span>"+Ratings[a];
+    document.getElementById("Image").src=ImageLinks[a];
+    document.getElementById("Description").innerHTML=Descriptions[a];
+    let MovieRows = document.getElementsByClassName("movies");
+    for (let i = 0; i < MovieRows.length; i++) {
+      MovieRows[i].style.display="none";
+    }
+  }
+  function Change() {
+    let str = document.getElementById("Search").value;
+    if (str=="") {
+      for (let i = 0; i<3; i++) {
+      document.getElementsByClassName("label")[i].style.display="none";
+      }
+    }
+    else {
+      for (let i = 0; i<3; i++) {
+        document.getElementsByClassName("label")[i].innerHTML="";
+      }
+      let a = 0;
+      for (item in MovieNames) {
+        var because = MovieNames[item];
+        if (MovieNames[item].toLowerCase().includes(str.toLowerCase())) {
+          var labels = document.getElementsByClassName("label");
+          if (labels[0].innerHTML=="") {
+            labels[0].innerHTML=MovieNames[item];
+            labels[0].setAttribute("onclick",'OpenMovie('+item+')');
+          }
+          else if (labels[1].innerHTML=="") {
+            labels[1].innerHTML=MovieNames[item];
+            labels[1].setAttribute("onclick",'OpenMovie('+item+')');
+          }
+          else if (labels[2].innerHTML=="") {
+            labels[2].innerHTML=MovieNames[item];
+            labels[2].setAttribute("onclick",'OpenMovie('+item+')');
+          }
+          a++;
+        }
+      }
+      if (a>3) {
+        a=3;
+      }
+      for (let i = 0; i<3; i++) {
+        document.getElementsByClassName("label")[i].style.display="none";
+      }
+      for (let i = 0; i<a; i++) {
+        document.getElementsByClassName("label")[i].style.display="block";
+      }
+   }
+  }
+  setInterval(Change,50)
+</script>
+</body>
+</html>
