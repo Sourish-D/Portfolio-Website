@@ -1,3 +1,35 @@
-#Portfolio
+# Portfolio
 
-Personal Portfolio to list down past and future projects, software and hardware.
+HOME
+│
+├── 👋 About Me
+│
+├── Spotify API
+|    |
+|    ├── 🎵 Currently Listening
+|    |
+|    └── 📊 Statistics
+│
+├── 🎮 My Favourite Games
+|
+└── 📬 Contact
+
+Experience
+├── 🎓 Education
+│
+├── 💼 Experience
+|
+├── ♟️ Extracurriculars
+|
+├── 🏆 Achievements
+│
+└── 📜 Certifications
+
+Projects
+├── ESP32 Radar
+├── Robotics / Vehicle
+├── Other Programming Projects
+|
+├── 🧠 LeetCode
+│
+└── 💻 GitHub Statistics

@@ -164,6 +164,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+.footer {
+    width:100%;
+    background-color:var(--navy);
+    margin:0;
+    padding:1.5em;
+    border-top:0.25em solid var(--black);
+}
 .last_item {
     width:25%;
     background-color:inherit;
