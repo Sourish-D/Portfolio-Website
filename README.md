@@ -27,51 +27,51 @@ The visual design of the website takes heavy inspiration from Opus Magnum, parti
 
 <h1> Project Layout: </h1> 
 
-HOME <Home />
-│
-├── About Me  <About />
-│
-├── Spotify API <Spotify />
-|    |
-|    ├── Currently Listening 
-|    |
-|    └── Statistics
-│
-├── My Favourite Games <Games />
-| 
-└── Contact <Footer />
-
-Background <Background />
+HOME <Home /> <br>
+│ <br>
+├── About Me  <About /> <br>
+│ <br>
+├── Spotify API <Spotify /> <br>
+|    | <br>
+|    ├── Currently Listening  <br>
+|    |<br>
+|    └── Statistics<br>
+│<br>
+├── My Favourite Games <Games /><br>
+| <br>
+└── Contact <Footer /><br>
+<br><br>
+Background <Background /><br>
+|<br>
+├── Education <School /><br>
+│<br>
+├── Experience <Experience /><br>
+|<br>
+├── Extracurriculars <Extracurriculars /><br>
+|<br>
+├── Achievements <Awards /><br>
+│<br>
+└── Certifications <Certificiations /><br>
+<br><br>
+Projects <ProjectsPage/><br>
 |
-├── Education <School />
+├── Projects <Projects /><br>
+|   | <br>
+|   ├── ESP32 Radar<br>
+|   |<br>
+|   ├── Robotics / Vehicle<br>
+|   |<br>
+|   └─── Other Programming Projects<br>
+|<br>
+├── LeetCode <Leetcode /><br>
 │
-├── Experience <Experience />
-|
-├── Extracurriculars <Extracurriculars />
-|
-├── Achievements <Awards />
-│
-└── Certifications <Certificiations />
-
-Projects </>
-|
-├── Projects <ProjectsPage />
-|   | 
-|   ├── ESP32 Radar
-|   |
-|   ├── Robotics / Vehicle
-|   |
-|   └─── Other Programming Projects
-|
-├── LeetCode <Leetcode />
-│
-└── GitHub Statistics <Github />
-
+└── GitHub Statistics <Github /><br>
+<br><br>
 --------------------------------------------
 Notes from Myself
 --------------------------------------------
 
-Somehow does motion \/ \/
+Somehow does motion \\/ \\/
 --------------
     <motion.h1
       initial={{ opacity: 0, y: 30 }}
