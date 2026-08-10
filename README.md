@@ -2,6 +2,8 @@
 
 <b>Hey! Welcome to my Personal Website!</b>
 
+<a href="https://sourish-d.github.io/Portfolio-Website/">Link to the Website!</a>
+
 I'm using this project as a showcase of my web development skills, projects and interests. This website originally started as a project using HTML, CSS and Javascript. As the project grew, I decided to transition to React to make the site more interaction, and easier to expand.
 
 <b>Currently, I'm using:</b>
