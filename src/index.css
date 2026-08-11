@@ -1,3 +1,20 @@
 h1 {
   color:red;
 }
+.navbar {
+  display:flex;
+  justify-content:start;
+}
+.navbar a {
+  text-decoration:none;
+  color:black;
+  padding-left:1em;
+  font-size:2em;
+}
+.about-me {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about-me p {
+  grid-column: 2 / 2 ;
+}

@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from '../components/Navbar.jsx'
 
 const ProjectsPage = () => {
   return (
-    <div>ProjectsPage</div>
+    <div>
+        <Navbar/>
+        ProjectsPage
+    </div>
   )
 }
 
