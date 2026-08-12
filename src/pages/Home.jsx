@@ -1,26 +1,44 @@
 import "../index.css";
+import {useState} from 'react';
 import Navbar from "../components/Navbar.jsx";
-import "../index.css";
+import GameCard from "../components/GameCard.jsx";
+import About from "../components/About.jsx";
+import Spotify from "../components/Spotify.jsx";
+import Footer from "../components/Footer.jsx";
+
+import factorio from "../assets/factorio.jpg"
+import opus_magnum from "../assets/opus_magnum.jpg";
+import nomifactory from "../assets/nomifactory.jpg";
 
 const Home = () => {
   return (
     <main>
       <Navbar />
-      <div class="about-me">
-        <h1>About Me</h1>
-        <p> 
-          Hey! Welcome to my personal website. My name is Sourish, and 
-          I'm a high school student with a passion for engineering and technology. I'm particularly interested in computer engineering, robotics, and embedded systems, and I hope to pursue engineering after high school. My interest in engineering even finds its way into the games I play! I love factory, automation, and optimization games like Factorio, Nomifactory, and Opus Magnum—the latter of which also inspired the visual design of this website.
-          <br/><br/>
-          Outside of engineering and programming, I enjoy playing basketball and chess, as well as watching TV shows. My favourite show is Pantheon, and my favourite artist is The 1975.
-          <br/><br/>
-          I built this website as both a final showcase of my web development skills and a place to share the projects I've worked on. I've also used it as an opportunity to experiment with APIs, interactive features, and different visual and stylistic elements. In a way, the website itself is another one of my projects.
-          <br/><br/>
-          Anyway, without further ado, feel free to explore, take a look around, and check out some of the things I've built!
-        </p>
-        
-        <img src="" alt="Profile Picture" />
+
+      <About />
+
+      <Spotify />
+
+      <div class="favourite-games">
+       <GameCard 
+          title="Factorio"
+          image={factorio}
+          description="Factorio is a 2D survival and simulation game about building and managing automated factories. Players crash-land on an alien planet, mine raw resources, research new technologies, build conveyor belts and logistics networks, and fight off native creatures angered by industrial pollution. The main goal is to launch a rocket into space."
+       />
+       <GameCard
+        title="Nomifactory"
+        image={nomifactory}
+        description="Nomifactory is a quest-driven expert minecraft pack focused on building large-scale factories, where you will put your automation skills to the test as you progress from punching trees to creative-in-survival, climbing the power tiers of GregTech: Community Edition and its extension, Shadows of Greg. No complicated magic systems, no forced combat or exploration: Only Factories!"
+       />
+       <GameCard
+        title="Opus Magnum"
+        image={opus_magnum}
+        description="Opus Magnum is an open-ended puzzle video game developed by Zachtronics released in December 2017. Players design and program physical machinery—using programmable arms, tracks, and alchemical glyphs—on a transmutation engine to turn basic reagents into products like potions, poisons, and weapons."
+       />
       </div>
+
+      <Footer />
+
     </main>
   )
 }
