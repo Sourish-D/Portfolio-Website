@@ -48,11 +48,9 @@ Background                         <br />
 │                                  <br />
 ├── Education                      <br />
 │                                  <br />
-├── Experience                     <br />
-│                                  <br />
 ├── Extracurriculars               <br />
 │                                  <br />
-├── Achievements                   <br />
+├── Experience                     <br />
 │                                  <br />
 └── Certifications                 <br />
                                    <br />

@@ -5,7 +5,7 @@ import album from "../assets/album.jpg";
 
 const Spotify = () => {
   return (
-    <div class="spotify">
+    <div class="spotify standard-block">
         <div class="spotify-now-playing">
           <h1>Now Listening To</h1>
           <div class="spotify-now-playing-content">

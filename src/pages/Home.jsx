@@ -19,6 +19,8 @@ const Home = () => {
 
       <Spotify />
 
+      <h1 class="title">My Favourite Games</h1>
+
       <div class="favourite-games">
        <GameCard 
           title="Factorio"

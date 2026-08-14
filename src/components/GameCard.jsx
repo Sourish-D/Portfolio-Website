@@ -1,4 +1,4 @@
-import {useState, React} from 'react'
+import {useState} from 'react'
 
 const GameCard = ({title, image, description}) => {
     const [expanded, setExpanded] = useState(false);

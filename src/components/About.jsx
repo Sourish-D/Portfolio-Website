@@ -3,7 +3,7 @@ import profilePic from "../assets/profile.webp";
 
 const About = () => {
   return (
-    <div className="about-me">
+    <div className="about-me standard-block">
       <h1>About Me</h1>
       <p>
         Hey! Welcome to my personal website. My name is Sourish, and
