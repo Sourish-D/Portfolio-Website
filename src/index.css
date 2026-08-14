@@ -10,7 +10,7 @@ main {
   box-sizing: border-box;
 }
 .standard-block {
-  width: 73%;
+  width: 75%;
   margin-left: 12.5%;
   background-color: lightgray;
   border: 2px solid black;
@@ -198,14 +198,16 @@ main {
 
 /* ****FOOTER**** */
 .footer {
+  position: relative;
   margin-top: 4rem;
   background-color: lightgray;
-  width: 98%;
+  width: 100%;
   border-top: 2px solid black;
   padding: 1%;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  z-index: -101;
 }
 .socials {
   height: 8rem;
@@ -437,4 +439,178 @@ main {
   to {
     transform: translateX(0);
   }
+}
+
+/* ****Projects Page**** */
+
+/* Projects */
+.projects-row {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: grid;
+  grid-template-columns: 20% 40% 20%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.project-card {
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 0.5%;
+  text-align: center;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.project-card:hover {
+  transition: transform 0.3s ease;
+}
+.project-card img {
+  aspect-ratio: 4/3;
+  width: 90%;
+}
+.project-card-left:hover {
+  transform: translateX(25%);
+}
+.project-card-right:hover {
+  transform: translateX(-25%);
+}
+.projects-row-display-content {
+  width: 100%;
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 0.5%;
+  text-align: center;
+  z-index: 20;
+  opacity:0;
+  transform:translateY(25%);
+}
+.projects-row-display-content video {
+  width: 50%;
+  aspect-ratio: 4/3;
+}
+.projects-row-display-content.visible {
+  animation: inDown 0.3s ease-in forwards;
+}
+@keyframes inDown {
+  from {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.project-out {
+  animation: outDown 0.3s ease-in forwards;
+}
+@keyframes outDown {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+}
+/* Github */
+.coding-activity-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom:8rem;
+}
+.coding-card {
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 0.5%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.contribution-graph {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  width: 70%;
+  margin-left: 15%;
+}
+.contribution-day {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: green;
+}
+.level-0 {
+  opacity: 0.15;
+}
+.level-1 {
+  opacity: 0.35;
+}
+.level-2 {
+  opacity: 0.55;
+}
+.level-3 {
+  opacity: 0.75;
+}
+.level-4 {
+  opacity: 1;
+}
+.coding-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.coding-stats-name {
+  margin-top:4%;
+  margin-bottom:4%;
+  text-align: left;
+  font-weight: bold;
+}
+.coding-stats-info {
+  margin-top:4%;
+  margin-bottom:4%;
+  text-align: right;
+  margin-right: 5%;
+}
+.coding-card-sub-heading {
+  text-align: left;
+  margin: 0;
+  margin-left: 15%;
+  font-size: 1.25rem;
+}
+.coding-card-pop-up {
+  position: absolute;
+  margin: 0%;
+  padding: 1%;
+  width: 50%;
+  padding-bottom: 0;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+  background-color: lightgray;
+  border: 2px solid black;
+  left: 25%;
+  top: 88%;
+  transition: top 0.3s ease;
+  text-align:center;
+}
+.coding-card-wrapper:hover .coding-card-pop-up {
+  top: 99%;
+  transition: top 0.3s ease;
+}
+.coding-card-wrapper {
+  position: relative;
+  width: 20%;
+  text-decoration:none;
+  color:black;
+}
+.coding-card-wrapper:hover .coding-card, .coding-card-wrapper:hover .coding-card-pop-up{
+  background-color:gray;
+}
+.coding-card-pop-up p, .coding-card-pop-up h1{
+  margin:1%;
+}
+.coding-card-pop-up h1{
+  margin-bottom:5%;
 }
