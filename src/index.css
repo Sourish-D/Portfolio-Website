@@ -1,4 +1,5 @@
-body, main {
+body,
+main {
   margin: 0;
   padding: 0;
   margin-top: 6rem;
@@ -16,48 +17,47 @@ body, main {
   padding: 1%;
 }
 .title {
-  margin-bottom:4rem;
-  margin-top:4rem;
-  text-align:center;
-  background-color:lightgray;
-  border:2px solid black;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  text-align: center;
+  background-color: lightgray;
+  border: 2px solid black;
   border-left: 0;
   border-right: 0;
-  padding-top:2rem;
-  padding-bottom:2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* ****Navbar**** */
 .navbar {
   position: fixed;
-  top:0;
-  display:flex;
-  justify-content:start;
+  top: 0;
+  display: flex;
+  justify-content: start;
   margin-bottom: 3rem;
   background-color: lightgray;
-  width:100%;
+  width: 100%;
   height: 4rem;
-  align-items:center;
+  align-items: center;
   border-bottom: 2px solid black;
   z-index: 100;
 }
 .navbar a {
-  display:flex;
-  text-decoration:none;
-  align-items:center;
-  color:black;
-  height:100%;
-  font-size:2rem;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  color: black;
+  height: 100%;
+  font-size: 2rem;
   padding-left: 1rem;
-  padding-right:1rem;
+  padding-right: 1rem;
 }
 .navbar a:hover {
   transition: background-color 0.3s ease;
-  background-color:gray;
+  background-color: gray;
 }
 
 /* ****HOMEPAGE**** */
-
 
 /* About Me Section */
 .about-me {
@@ -77,7 +77,7 @@ body, main {
   grid-column: 1 / span 1;
   grid-row: 2 / span 1;
   border-radius: 50%;
-  max-width:50%;
+  max-width: 50%;
   height: auto;
   align-self: center;
   justify-self: center;
@@ -87,59 +87,59 @@ body, main {
 /* Spotify Section */
 .spotify {
   margin-top: 4rem;
-  margin-bottom:4rem;
-  display:flex;
+  margin-bottom: 4rem;
+  display: flex;
 }
 .spotify-now-playing {
   width: 47%;
   height: 100%;
-  padding-right:3%;
+  padding-right: 3%;
   border-right: 2px solid black;
 }
 .spotify-now-playing h1 {
   text-align: center;
-  margin:0;
-  padding:1rem;
+  margin: 0;
+  padding: 1rem;
 }
 .spotify-now-playing-content {
-  display:flex;
-  justify-content:space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 .spotify-now-playing-content img {
-  width:40%;
-  margin:5%;
+  width: 40%;
+  margin: 5%;
   border-radius: 50%;
 }
 .spotify-now-playing-info {
   width: 50%;
 }
-.spotify-progress_bar{
+.spotify-progress_bar {
   width: 100%;
   height: 0.5rem;
-  background-color:red;  
+  background-color: red;
 }
 .spotify-stats {
-  width:47%;
-  padding-left:1.5%;
-  padding-right:1.5%;
-  padding-bottom:1.5%;
-  display:grid;
+  width: 47%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-bottom: 1.5%;
+  display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .spotify-stats h1 {
-  grid-row: 1 /  span 1;
+  grid-row: 1 / span 1;
   grid-column: 1 / span 2;
 }
 .spotify-stats-album {
   grid-row: 2 / span 2;
   grid-column: 2 / span 1;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-.spotify-stats-album img{
-  width:75%;
-  height:auto;
+.spotify-stats-album img {
+  width: 75%;
+  height: auto;
 }
 .spotify-stats-titles {
   grid-row: 2 / span 1;
@@ -153,30 +153,30 @@ body, main {
 /* Favourite Games Page */
 .favourite-games {
   margin-bottom: 4rem;
-  width:75%;
-  margin-left:12.5%;
-  display:flex;
+  width: 75%;
+  margin-left: 12.5%;
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 .favourite-games-card {
-  width:25%;
-  background-color:lightgray;
-  text-align:center;
+  width: 25%;
+  background-color: lightgray;
+  text-align: center;
   border: 2px solid black;
   position: relative;
 }
 .favourite-games-card img {
-  width:100%;
+  width: 100%;
   aspect-ratio: 1/1;
 }
 .favourite-games-card button {
-  position:absolute;
-  width:20%;
-  height:10%;
-  border-radius:0% 0% 50% 50%;
-  left:40%;
-  top:100%;
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  border-radius: 0% 0% 50% 50%;
+  left: 40%;
+  top: 100%;
 }
 .favourite-games-card button:hover {
   background-color: darkgray;
@@ -196,33 +196,30 @@ body, main {
   grid-template-rows: 1fr;
 }
 
-
 /* ****FOOTER**** */
 .footer {
   margin-top: 4rem;
-  background-color:lightgray;
-  width:98%;
-  border-top:2px solid black;
+  background-color: lightgray;
+  width: 98%;
+  border-top: 2px solid black;
   padding: 1%;
   display: flex;
   justify-content: space-around;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 .socials {
-  height:8rem;
-  display:flex;
+  height: 8rem;
+  display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 .link {
-  color:blue;
+  color: blue;
   text-decoration: underline;
   font-weight: normal;
 }
 
-
 /* ****BACKGROUND**** */
-
 
 /* Education */
 .education {
@@ -230,57 +227,57 @@ body, main {
   width: 75%;
   display: flex;
 }
-.education div{
+.education div {
   padding: 1%;
 }
 .education-school-info {
   border-right: 2px solid black;
 }
 .education-details {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .grid-inverse {
   text-align: end;
 }
 .education-course-info {
-  border-right:2px solid black;
-  width:20%;
+  border-right: 2px solid black;
+  width: 20%;
 }
-.education-course-info p{
+.education-course-info p {
   display: flex;
   justify-content: space-between;
 }
 .education-course-info-bar {
-  width:100%;
-  background-color:gray;
+  width: 100%;
+  background-color: gray;
 }
 .education-course-info-bar div {
-  height:100%;
-  background-color:white;
+  height: 100%;
+  background-color: white;
 }
 /* Extracurriculars */
 .extracurriculars {
-  display:flex;
-  justify-content:space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 .extracurricular-card {
-  margin:0;
-  width:20%;
-  text-align:center;
-  position:relative;
+  margin: 0;
+  width: 20%;
+  text-align: center;
+  position: relative;
 }
 .extracurricular-card img {
   aspect-ratio: 1/1;
   width: 100%;
 }
 .extracurricular-card button {
-  width:100%;
-  padding:0.5rem;
+  width: 100%;
+  padding: 0.5rem;
 }
 .ec-block-two {
-  position:absolute;
-  text-align:left;
+  position: absolute;
+  text-align: left;
 }
 .ec-block {
   opacity: 0;
@@ -295,7 +292,8 @@ body, main {
   text-align: center;
   overflow: hidden;
 }
-.extracurricular-card::after, .experience::after {
+.extracurricular-card::after,
+.experience::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -306,7 +304,8 @@ body, main {
   pointer-events: none;
   z-index: 30;
 }
-.extracurricular-card.flash::after, .experience.flash::after{
+.extracurricular-card.flash::after,
+.experience.flash::after {
   animation: cardFlash 0.3s ease-in-out;
 }
 @keyframes cardFlash {
@@ -325,11 +324,11 @@ body, main {
 /* Experience */
 .experience {
   position: relative;
-  display:flex;
+  display: flex;
 }
 .experience img {
   width: 90%;
-  aspect-ratio:16/9;
+  aspect-ratio: 16/9;
 }
 .experience-left {
   left: 0;
@@ -341,7 +340,7 @@ body, main {
 }
 .experience-left,
 .experience-right {
-  font-size:2rem;
+  font-size: 2rem;
   position: absolute;
   top: 50%;
 
@@ -353,88 +352,89 @@ body, main {
 .experience-left-side {
   width: 50%;
 }
-.experience-left:hover, .experience-right:hover {
-  background-color:gray;
+.experience-left:hover,
+.experience-right:hover {
+  background-color: gray;
 }
 .experience-title {
-  margin-top:4rem;
-  margin-left:12.5%;
-  margin-bottom:1%;
+  margin-top: 4rem;
+  margin-left: 12.5%;
+  margin-bottom: 1%;
 }
 /*Certifications*/
 .certificates {
-  margin-top:4rem;
+  margin-top: 4rem;
 }
 .certificates h1 {
-  margin-left:20%;
+  margin-left: 20%;
 }
 .certificates-content {
-  position:relative;
-  display:flex;
-  padding:0;
-  width:60%;
-  margin-left:20%;
+  position: relative;
+  display: flex;
+  padding: 0;
+  width: 60%;
+  margin-left: 20%;
 }
 .certificates-card {
-  display:flex;
-  flex-direction:column;
-  border-right:2px solid black;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid black;
 }
 .certificates-card button {
-  background-color:lightgray;
-  flex:1;
-  border:2px solid black;
-  margin:0;
-  padding:1rem;
+  background-color: lightgray;
+  flex: 1;
+  border: 2px solid black;
+  margin: 0;
+  padding: 1rem;
   display: flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1rem;
-  font-weight:bold;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
 }
 .certificates-card button:hover {
-  background-color:gray;
+  background-color: gray;
 }
 .certificate-display {
   width: 83%;
   overflow: hidden;
   position: relative;
-  aspect-ratio:4/3;
+  aspect-ratio: 4/3;
 }
 .certificate-display img {
-  width:100%;
-  display:block;
-  height:100%;
-  object-fit:fill;
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: fill;
 }
 .certificate-current,
 .certificate-next {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .out-left {
-    animation: outLeft 0.3s ease-in forwards;
+  animation: outLeft 0.3s ease-in forwards;
 }
 .in-left {
-    animation: inLeft 0.3s ease-out forwards;
+  animation: inLeft 0.3s ease-out forwards;
 }
 @keyframes outLeft {
-    from {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(0);
+  }
 
-    to {
-        transform: translateX(100%);
-    }
+  to {
+    transform: translateX(100%);
+  }
 }
 @keyframes inLeft {
-    from {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(-100%);
+  }
 
-    to {
-        transform: translateX(0);
-    }
+  to {
+    transform: translateX(0);
+  }
 }

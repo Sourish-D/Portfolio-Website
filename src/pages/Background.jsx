@@ -1,11 +1,11 @@
-import Navbar from '../components/Navbar.jsx'
-import Education from "../components/Education.jsx"
-import Extracurriculars from "../components/Extracurriculars.jsx"
-import Experience from "../components/Experience.jsx"
-import Certifications from "../components/Certifications.jsx"
-import Footer from "../components/Footer.jsx"
-import chess from "../assets/chess.jpg"
-import piClub from "../assets/piClub.jpg"
+import Navbar from "../components/Navbar.jsx";
+import Education from "../components/Education.jsx";
+import Extracurriculars from "../components/Extracurriculars.jsx";
+import Experience from "../components/Experience.jsx";
+import Certifications from "../components/Certifications.jsx";
+import Footer from "../components/Footer.jsx";
+import chess from "../assets/chess.jpg";
+import piClub from "../assets/piClub.jpg";
 import MUN from "../assets/MUN.webp";
 
 const Background = () => {
@@ -17,12 +17,12 @@ const Background = () => {
 
       <h1 class="title">Extracurriculars</h1>
       <div class="extracurriculars">
-        <Extracurriculars 
+        <Extracurriculars
           title="Chess Team"
           image={chess}
           description="A member of the school's chess team, participating in regular practices, school competitions, and tournaments. I enjoy playing competitively and working through challenging positions with the rest of the team."
           time="2023"
-          award="Award: Junior Most Spirited" 
+          award="Award: Junior Most Spirited"
         />
         <Extracurriculars
           title="Pi Club"
@@ -40,7 +40,6 @@ const Background = () => {
         />
       </div>
 
-
       <h1 class="experience-title">Previous Experience</h1>
       <Experience />
 
@@ -48,7 +47,7 @@ const Background = () => {
 
       <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default Background
+export default Background;
