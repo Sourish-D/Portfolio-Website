@@ -8,7 +8,7 @@ import ProjectsPage from './pages/ProjectsPage.jsx';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio-Website">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/background" element={<Background />} />
