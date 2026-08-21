@@ -7,13 +7,14 @@ import Footer from "../components/Footer.jsx";
 import chess from "../assets/chess.jpg";
 import piClub from "../assets/piClub.jpg";
 import MUN from "../assets/MUN.webp";
+import Animation from "../components/Animation.jsx";
 
 const Background = () => {
   return (
     <main>
       <Navbar />
 
-      <Education />
+      <Animation element = {<Education />} />
 
       <h1 class="title">Extracurriculars</h1>
       <div class="extracurriculars">

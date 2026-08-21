@@ -1,8 +1,7 @@
-body,
-main {
+body{
   margin: 0;
   padding: 0;
-  margin-top: 6rem;
+  background:url("assets/opus_magnum_bg.jpg") center top / 100% auto repeat-y;
 }
 
 /* GENERAL */
@@ -27,14 +26,12 @@ main {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-
 /* ****Navbar**** */
 .navbar {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: start;
-  margin-bottom: 3rem;
   background-color: lightgray;
   width: 100%;
   height: 4rem;
@@ -86,8 +83,6 @@ main {
 
 /* Spotify Section */
 .spotify {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   display: flex;
 }
 .spotify-now-playing {
@@ -160,14 +155,13 @@ main {
   align-items: flex-start;
 }
 .favourite-games-card {
-  width: 25%;
   background-color: lightgray;
   text-align: center;
   border: 2px solid black;
   position: relative;
 }
 .favourite-games-card img {
-  width: 100%;
+  width:80%;
   aspect-ratio: 1/1;
 }
 .favourite-games-card button {
@@ -368,7 +362,13 @@ main {
   margin-top: 4rem;
 }
 .certificates h1 {
+  background-color:lightgray;
+  width:60%;
+  margin:0;
   margin-left: 20%;
+  padding:1%;
+  border:2px solid black;
+  border-bottom: none;
 }
 .certificates-content {
   position: relative;
@@ -613,4 +613,104 @@ main {
 }
 .coding-card-pop-up h1{
   margin-bottom:5%;
+}
+/* Animation */
+.pull-container {
+  position: relative;
+  width: 100%;
+  z-index: -100;
+}
+.pull-container.hidden {
+  overflow: hidden;
+}
+.pull-container.visible {
+  overflow: visible;
+}
+.opus-arm {
+  position: absolute;
+  left: 4.5%;
+  top: 45.3%;
+  width: 20%;
+  transform-origin: 21% 48%;
+  transform: rotate(45deg);
+  transition: transform 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 2;
+}
+.opus-arm.pulling {
+  transform: rotate(0deg);
+}
+.opus-arm-socket {
+  position: absolute;
+  left: 5.6%;
+  top: 48%;
+  width: 5.5%;
+}
+.orbit {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: fit-content;
+  transform-origin: 8.7% 57%;
+  transform: rotate(45deg);
+  transition: transform 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.orbit.pulled {
+  transform: rotate(0deg);
+}
+.about-wrapper {
+  position: relative;
+  height: fit-content;
+  width:100%;
+  opacity: 0.5;
+  transition: opacity 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.orbit.pulled .about-wrapper {
+  opacity: 1;
+}
+.opus-arm.right {
+  left: 92%;
+  top: 45%;
+  transform-origin: 21% 48%;
+  transform: rotate(135deg);
+}
+.opus-arm.right.pulling {
+  transform: rotate(180deg);
+}
+.opus-arm-socket.right {
+  left: auto;
+  right: 0.5%;
+  top: 46%;
+  width: 6%;
+}
+.orbit.right {
+  transform: rotate(-45deg);
+  transform-origin: 91.5% 57%;
+}
+.orbit.right.pulled {
+  transform: rotate(0deg);
+}
+.about-wrapper.right {
+  right: 0;
+}
+.pull-container.first {
+  margin-top: 6rem;
+}
+.pull-container.down {
+  margin-top:4rem;
+}
+.favourite-games > * {
+  width: 25%;
+}
+.opus-arm-socket.card {
+  width:30%;
+  left:-40%;
+}
+.opus-arm.card {
+  width:90%;
+  left:-42%;
+  top:48%;
+}
+.orbit.card {
+  transform-origin: -42% 48%;
 }
