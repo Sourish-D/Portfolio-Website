@@ -10,7 +10,7 @@ const GameCard = ({ title, image, description }) => {
         <p>{description}</p>
       </div>
       <button onClick={() => setExpanded(!expanded)}>
-        {expanded ? "▼" : "▲"}
+        {expanded ? "▲" : "▼"}
       </button>
     </div>
   );

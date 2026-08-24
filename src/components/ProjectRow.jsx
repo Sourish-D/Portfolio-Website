@@ -78,7 +78,7 @@ const ProjectRow = ({
         onClick={() => setOpen(1)}
       />
       <div
-        class={`projects-row-display-content standard-block center-text
+        className={`projects-row-display-content standard-block center-text
           ${Visible ? "visible" : ""} 
           ${hasOpened && !Visible ? "project-out":""}`}
       >
@@ -87,16 +87,11 @@ const ProjectRow = ({
           {SecondOpen ? title2 : ""}
           {FirstOpen || SecondOpen ? "" : title1}
         </h1>
-        <video controls>
-          <source
-            type="video/mp4"
-            src={`
-                    ${FirstOpen ? video1 : ""} 
-                    ${SecondOpen ? video2 : ""} 
-                    ${FirstOpen || SecondOpen ? "" : video1}
-                `}
-          />
-        </video>
+        <video 
+          key={FirstOpen ? video1 : SecondOpen ? video2 : video1}
+          src={FirstOpen ? video1 : SecondOpen ? video2 : video1} 
+          controls 
+        />
         <p>
           {FirstOpen ? desc1 : ""}
           {SecondOpen ? desc2 : ""}
@@ -132,8 +127,8 @@ const ProjectRow = ({
         status={status2}
         onClick={() => setOpen(2)}
       />
-      <img src={Track} class="project-track left"/>
-      <img src={Track} class="project-track right"/>
+      <img src={Track} className="project-track left"/>
+      <img src={Track} className="project-track right"/>
     </div>
   );
 };
