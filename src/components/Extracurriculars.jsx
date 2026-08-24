@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Extracurriculars = ({ title, image, description, time, award }) => {
+const Extracurriculars = ({ title, image, description, time, award}) => {
   const [transmuted, setTransmuted] = useState(false);
   const [flashing, setFlashing] = useState(false);
   const transmute = () => {
@@ -16,10 +16,10 @@ const Extracurriculars = ({ title, image, description, time, award }) => {
   };
   return (
     <div
-      class={`extracurricular-card standard-block ${flashing ? "flash" : ""}`}
+      className={`extracurricular-card standard-block center-text ${flashing ? "flash" : ""}`}
     >
-      <h1>{title}</h1>
-      <div class={`ec-block ec-block-two ${transmuted ? "ec-closed" : ""}`}>
+      <h1 className="important-text">{title}</h1>
+      <div className={`ec-block distribute-column-text ec-block-two ${transmuted ? "ec-closed" : ""}`}>
         <p>
           <b>Executive</b>
           <br />
@@ -30,7 +30,7 @@ const Extracurriculars = ({ title, image, description, time, award }) => {
         </p>
         <p>{description}</p>
       </div>
-      <div class={`ec-block ${transmuted ? "" : "ec-closed"}`}>
+      <div className={`ec-block ${transmuted ? "" : "ec-closed"}`}>
         <img src={image} />
       </div>
       <button onClick={transmute}>View More</button>

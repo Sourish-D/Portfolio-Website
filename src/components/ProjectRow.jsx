@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard.jsx";
+import Track from "../assets/Track.png";
 
 const ProjectRow = ({
   title1,
@@ -77,11 +78,11 @@ const ProjectRow = ({
         onClick={() => setOpen(1)}
       />
       <div
-        class={`projects-row-display-content 
+        class={`projects-row-display-content standard-block center-text
           ${Visible ? "visible" : ""} 
           ${hasOpened && !Visible ? "project-out":""}`}
       >
-        <h1>
+        <h1 className="important-text">
           {FirstOpen ? title1 : ""}
           {SecondOpen ? title2 : ""}
           {FirstOpen || SecondOpen ? "" : title1}
@@ -131,6 +132,8 @@ const ProjectRow = ({
         status={status2}
         onClick={() => setOpen(2)}
       />
+      <img src={Track} class="project-track left"/>
+      <img src={Track} class="project-track right"/>
     </div>
   );
 };

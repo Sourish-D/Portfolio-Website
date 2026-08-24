@@ -3,9 +3,9 @@ import profilePic from "../assets/profile.webp";
 
 const About = () => {
   return (
-    <div className="about-me standard-block">
-      <h1>About Me</h1>
-      <p>
+    <div className="double-grid standard-block middle-box about-me center-text">
+      <h1 className="important-text">About Me</h1>
+      <p className="row-span2">
         Hey! Welcome to my personal website. My name is Sourish, and I'm a high
         school student with a passion for engineering and technology. I'm
         particularly interested in computer engineering, robotics, and embedded

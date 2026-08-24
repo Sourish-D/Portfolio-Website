@@ -45,32 +45,34 @@ const CodingCard = ({title, columns, link}) => {
         return 4;
     };
   return (
-    <a href={link} class="coding-card-wrapper">
-        <div class="coding-card">
-            <h1>{title}</h1>
+    <a href={link} className="coding-card-wrapper">
+        <div className="coding-card standard-block text-center">
+            <div className="card-image-overlay" />
+            <h1 className="important-text">{title}</h1>
             
-            <p class="coding-card-sub-heading">Contributions: </p>
-            <div className="contribution-graph">
-                {contributions.map((day) => (
-                    <div
-                        className={`contribution-day level-${getLevel(day.count)}`}
-                        key={day.date}
-                    />
-                ))}
+            <div className="contribution-graph-block">
+                <p className="coding-card-sub-heading important-text">Contributions: </p>
+                <div className="contribution-graph">
+                    {contributions.map((day) => (
+                        <div
+                            className={`contribution-day level-${getLevel(day.count)}`}
+                            key={day.date}
+                        />
+                    ))}
+                </div>
             </div>
 
-            <div class="coding-statistics">
+            <div className="coding-statistics">
                 {columns.map((row) => (
-                    <div class="coding-stats-row">
-                        <p class="coding-stats-info">{row.info}</p>
-                        <p class="coding-stats-name">{row.statName}</p>
+                    <div className="double-grid">
+                        <p className="coding-stats-info">{row.info}</p>
+                        <p className="coding-stats-name">{row.statName}</p>
                     </div>
                 ))}
             </div>
         </div>
-        <div class="coding-card-pop-up">
+        <div className="coding-card-pop-up standard-block center-text">
             <p>See Account!</p>
-            <h2>↓</h2>
         </div>
     </a>
   )

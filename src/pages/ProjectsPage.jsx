@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import ProjectRow from "../components/ProjectRow.jsx";
 import CodingCard from "../components/CodingCard.jsx";
+import Animation from "../components/Animation.jsx";
 
 const githubStatistics = [
   {info: "s", statName: "Commits"},
@@ -44,16 +45,29 @@ const ProjectsPage = () => {
       />
 
       <h1 class="title">Coding Activity</h1>
-      <div class="coding-activity-row">
-        <CodingCard 
-          title="Github"
-          columns={githubStatistics}
-          link="https://github.com/Sourish-D"
+      <div class="coding-activity-row even-flex space-down">
+        <Animation 
+          element={
+             <CodingCard 
+              title="Github"
+              columns={githubStatistics}
+              link="https://github.com/Sourish-D"
+            />
+          }
+          width="100%"
+          card
         />
-        <CodingCard 
-          title="LeetCode"
-          columns={leetCodeStatistics}
-          link="https://leetcode.com/u/GodCREEPERGOD/"
+       <Animation 
+          element={
+             <CodingCard 
+              title="LeetCode"
+              columns={leetCodeStatistics}
+              link="https://leetcode.com/u/GodCREEPERGOD/"
+            />
+          }
+          width="100%"
+          card
+          right
         />
       </div>
 
