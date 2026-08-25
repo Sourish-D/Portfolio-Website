@@ -4,11 +4,11 @@
 
 <a href="https://sourish-d.github.io/Portfolio-Website/">Link to the Website!</a>
 
-I'm using this project as a showcase of my web development skills, projects and interests. This website originally started as a project using HTML, CSS and Javascript. As the project grew, I decided to transition to React to make the site more interaction, and easier to expand.
+I'm using this project as a showcase of my web development skills, projects and interests. This website originally started as a project using HTML, CSS and Javascript. As the project grew, I decided to transition to React to make the site more interactive, and easier to expand.
 
 <b>Currently, I'm using:</b>
 - React
-- JavsScript
+- Javascript
 - CSS
 - Vite
 
@@ -41,7 +41,7 @@ HOME                               <br />
 │                                  <br />
 ├── My Favourite Games             <br />
 │                                  <br />
-└── Contact                        <br />
+└── Footer                         <br />
                                    <br />
                                    <br />
 Background                         <br />
@@ -52,33 +52,21 @@ Background                         <br />
 │                                  <br />
 ├── Experience                     <br />
 │                                  <br />
-└── Certifications                 <br />
+├── Certifications                 <br />
+│                                  <br />
+└── Footer                         <br />
                                    <br />
                                    <br />
 Projects                           <br />
 │                                  <br />
 ├── Projects                       <br />
-│&emsp;│                              <br />
-│&emsp;├── ESP32 Radar                <br />
-│&emsp;│                              <br />
-│&emsp;├── Robotics / Vehicle         <br />
-│&emsp;│                              <br />
-│&emsp;└─── Other Programming Projects<br />
+│&emsp;│                           <br />
+│&emsp;├── ESP32 Car               <br />
+│&emsp;│                           <br />
+│&emsp;└── Portfolio Website       <br />
 │                                  <br />
 ├── LeetCode                       <br />
 │                                  <br />
-└── GitHub Statistics              <br />
-                                   <br />
---------------------------------------------
-Notes from Myself
---------------------------------------------
-
-Somehow does motion \\/ \\/
---------------
-    <motion.h1
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      Hey, I'm Sourish
-    </motion.h1>
+├── GitHub                         <br />
+│                                  <br />
+└── Footer  
