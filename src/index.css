@@ -6,7 +6,7 @@ html, body, #root {
   padding: 0;
 }
 body{
-  background:url("assets/opus_magnum_bg.PNG") center top / 100% auto repeat-y;
+  background:url("assets/opus_magnum_bg.png") center top / 100% auto repeat-y;
 }
 h1 {
   font-size:2rem;
@@ -198,8 +198,10 @@ p {
   padding-right: 3%;
 }
 .spotify-img{
-  width:100%;
+  margin-left:10%;
+  width:80%;
   border-radius: 50%;
+  animation: 10s spin linear infinite;
 }
 .spotify-progress_bar {
   width: 100%;
@@ -212,7 +214,14 @@ p {
 .spotify-stats-album img {
   width: 75%;
 }
-
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Favourite Games Page */
 .favourite-games-card {
   position: relative;
