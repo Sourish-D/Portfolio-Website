@@ -63,8 +63,8 @@ const CodingCard = ({title, columns, link}) => {
             </div>
 
             <div className="coding-statistics">
-                {columns.map((row) => (
-                    <div className="double-grid">
+                {columns.map((row, index) => (
+                    <div className="double-grid" key={row.statName || index}>
                         <p className="coding-stats-info">{row.info}</p>
                         <p className="coding-stats-name">{row.statName}</p>
                     </div>

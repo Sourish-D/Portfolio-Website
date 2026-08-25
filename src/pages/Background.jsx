@@ -4,7 +4,7 @@ import Extracurriculars from "../components/Extracurriculars.jsx";
 import Experience from "../components/Experience.jsx";
 import Certifications from "../components/Certifications.jsx";
 import Footer from "../components/Footer.jsx";
-import chess from "../assets/chess.jpg";
+import chess from "../assets/chess.webp";
 import piClub from "../assets/piClub.jpg";
 import MUN from "../assets/MUN.webp";
 import Animation from "../components/Animation.jsx";
@@ -17,7 +17,7 @@ const Background = () => {
       <Animation element = {<Education />} first />
 
       <h1 className="title">Extracurriculars</h1>
-      <div className="card-group middle-box extracurriculars">
+      <section className="card-group middle-box extracurriculars">
         <Animation 
           element={
             <Extracurriculars
@@ -59,7 +59,7 @@ const Background = () => {
           card
           delay={0.5}
         />
-      </div>
+      </section>
 
       <h1 className="title">Previous Experience</h1>
 

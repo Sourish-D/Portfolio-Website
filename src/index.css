@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+
 html, body, #root {
   height:100%;
   margin: 0;
@@ -14,6 +16,9 @@ h2 {
 }
 h3 {
   font-size: 0.85rem;
+}
+p {
+  font-size:0.75rem;
 }
 
 /* GENERAL */
@@ -82,9 +87,6 @@ h3 {
   font-weight: 400;
   font-style: normal;
 }
-p {
-  font-size:0.75rem;
-}
 .title, .important-text {
   font-family: "Cormorant Garamond", serif;
   font-optical-sizing: auto;
@@ -93,7 +95,6 @@ p {
 }
 
 /* ****Navbar**** */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
 .navbar {
   position: fixed;
   top: 0;
@@ -150,13 +151,38 @@ p {
   height: 40%;
   background: linear-gradient(to bottom, transparent, #8b7355, transparent);
 }
+.navbar a.nav-link:focus, button:focus {
+  outline: none;
+}
+.navbar a.nav-link:focus-visible, button:focus-visible, .certificates-card button:hover {
+  outline: 2px solid #00e5ff;
+  outline-offset: -4px;
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8), inset 0 0 8px rgba(0, 229, 255, 0.4);
+  color: #ffffff;
+}
+.navbar a.nav-link:focus-visible .element-icon {
+  color: #00e5ff;
+  transform: rotate(180deg);
+}
 
 /* ****HOMEPAGE**** */
 
 /* About Me Section */
+.about-me {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+.about-me h1, .about-me img {
+  grid-column:span 3;
+}
+.about-me p {
+  grid-column: span 7;
+  grid-row: span 2;
+}
 .about-me img {
   border-radius: 50%;
-  width:50%;
+  width:75%;
   align-self: center;
   justify-self: center;
   aspect-ratio: 1 / 1;
@@ -228,7 +254,6 @@ p {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  z-index: -1;
   border-width: 24px 0 0 0 ;
 }
 .footer > * {
@@ -352,7 +377,7 @@ p {
   flex: 1;
   font-size: 1rem;
   font-weight: bold;
-  background: url("assets/letter_7.png") no-repeat center / 100% 100%;
+  background: url("assets/letter_7.webp") no-repeat center / 100% 100%;
 }
 .certificates-card button:hover {
   background-color: gray;

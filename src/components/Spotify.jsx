@@ -3,7 +3,7 @@ import album from "../assets/album.jpg";
 
 const Spotify = () => {
   return (
-    <div className="spotify standard-block middle-box double-grid center-text">
+    <section className="spotify standard-block middle-box double-grid center-text">
       <div className="spotify-now-playing right-border">
         <h1 className="important-text">Now Listening To</h1>
         <div className="double-grid">
@@ -38,7 +38,7 @@ const Spotify = () => {
           <button>All Time</button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

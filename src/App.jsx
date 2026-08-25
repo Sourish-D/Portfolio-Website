@@ -8,7 +8,7 @@ import ProjectsPage from './pages/ProjectsPage.jsx';
 
 function App() {
   return (
-    <BrowserRouter basename="/Portfolio-Website">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/background" element={<Background />} />
