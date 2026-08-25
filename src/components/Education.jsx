@@ -1,6 +1,6 @@
 const Education = () => {
   return (
-    <div className="education standard-block middle-box even-flex">
+    <section className="education standard-block middle-box even-flex">
       <div className="right-border distribute-column-text">
         <h1 className="important-text">Education</h1>
         <h2>St. Marcellinus Catholic Secondary School</h2>
@@ -47,7 +47,7 @@ const Education = () => {
         <p>Chess Club - Junior Most Spirited 2025</p>
         <p>Pi Club - Junior Most Valuable 2025</p>
       </div>
-    </div>
+    </section>
   );
 };
 

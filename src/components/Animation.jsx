@@ -25,10 +25,19 @@ const Animation = ({
         threshold: 0.3,
       },
     );
+    
+    const currentRef = containerRef.current;
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      observer.disconnect();
+    };
   }, []);
   useEffect(() => {
     function handleClickOutside(event) {

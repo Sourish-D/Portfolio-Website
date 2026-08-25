@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Extracurriculars = ({ title, image, description, time, award}) => {
   const [transmuted, setTransmuted] = useState(false);
   const [flashing, setFlashing] = useState(false);
+  const timersRef = useRef([]);
+
+  const clearAllTimers = () => {
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
+  };
+
+  useEffect(() => {
+    return () => clearAllTimers();
+  }, []);
+
   const transmute = () => {
+    clearAllTimers();
     setFlashing(true);
 
     setTimeout(() => {

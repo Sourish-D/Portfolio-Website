@@ -9,7 +9,9 @@ const GameCard = ({ title, image, description }) => {
       <div className={`game-description ${expanded ? "open" : ""}`}>
         <p>{description}</p>
       </div>
-      <button onClick={() => setExpanded(!expanded)}>
+      <button
+        onClick={() => setExpanded(!expanded)}
+      >
         {expanded ? "▲" : "▼"}
       </button>
     </div>

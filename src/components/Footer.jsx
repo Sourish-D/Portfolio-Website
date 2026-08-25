@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="footer standard-block space-up">
+    <footer className="footer standard-block space-up">
       <div className="distribute-column-text">
         <p>Built with React + Vite</p>
         <a href="https://github.com/Sourish-D/Portfolio-Website">View Source</a>
@@ -11,7 +11,7 @@ const Footer = () => {
         <a href="https://www.linkedin.com/in/sourish-dhakal/">LinkedIn</a>
         <a href="mailto:Sourish.dhakal1@gmail.com">Email</a>
       </div>
-    </div>
+    </footer>
   );
 };
 

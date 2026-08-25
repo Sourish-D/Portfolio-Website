@@ -20,6 +20,30 @@ const leetCodeStatistics = [
   {info:"0", statName: "Medium"},
   {info:"0", statName: "Hard"}
 ]
+const projectInfo = [
+  {
+    title:"Portfolio Website", 
+    img:portfolio, 
+    lesson:"Responsive Design, API Integration, UI Animation", 
+    status:"In Progress", 
+    desc:"An interactive personal portfolio website designed to showcase my projects, experience, extracurriculars, certifications, and technical skills. The site uses an Opus Magnum-inspired visual style, with mechanical animations and interactive components to make the portfolio feel more like an application than a traditional resume.", 
+    components:"Git/GitHub, React, Vite", 
+    technologies:"React, JavaScript, REST APIs / GraphQL APIs", 
+    github:"https://github.com/Sourish-D/Portfolio-Website", 
+    video: PortfolioDevlogThree
+  },
+  {
+    title:"ESP32 Autonomous Car", 
+    img:esp_car, 
+    lesson:"Embedded Programming, Motor Control, Sensor Integration", 
+    status:"In Progress", 
+    desc:"An ESP32-powered car designed to demonstrate wireless control and autonomous movement. The project combines DC motors, a motor driver, and sensors to control the car's movement and respond to its surroundings. I designed and programmed the control system while troubleshooting both the electronics and mechanical components.", 
+    components:"ESP32, Motors, Sensor, Gears", 
+    technologies:"C++, Arduino, Motor Control", 
+    github:"https://github.com/Sourish-D/ESP32Projects/tree/main/Car", 
+    video: EspCarVid
+  }
+]
 
 const ProjectsPage = () => {
   return (
@@ -28,28 +52,12 @@ const ProjectsPage = () => {
 
       <h1 className="title">Projects</h1>
       <ProjectRow
-        title1="Portfolio Website"
-        img1={portfolio}
-        lesson1="Responsive Design, API Integration, UI Animation"
-        status1="In Progress"
-        desc1="An interactive personal portfolio website designed to showcase my projects, experience, extracurriculars, certifications, and technical skills. The site uses an Opus Magnum-inspired visual style, with mechanical animations and interactive components to make the portfolio feel more like an application than a traditional resume."
-        components1="Git/GitHub, React, Vite"
-        technologies1="React, JavaScript, REST APIs / GraphQL APIs"
-        github1="https://github.com/Sourish-D/Portfolio-Website"
-        video1={PortfolioDevlogThree}
-        title2="ESP32 Autonomous Car"
-        img2={esp_car}
-        lesson2="Embedded Programming, Motor Control, Sensor Integration"
-        status2="In Progress"
-        desc2="An ESP32-powered car designed to demonstrate wireless control and autonomous movement. The project combines DC motors, a motor driver, and sensors to control the car's movement and respond to its surroundings. I designed and programmed the control system while troubleshooting both the electronics and mechanical components."
-        components2="ESP32, Motors, Sensor, Gears"
-        technologies2="C++, Arduino, Motor Controll"
-        github2="https://github.com/Sourish-D/ESP32Projects/tree/main/Car"
-        video2={EspCarVid}
+        project1={projectInfo[0]}
+        project2={projectInfo[1]}
       />
 
       <h1 className="title">Coding Activity</h1>
-      <div className="coding-activity-row even-flex space-down">
+      <section className="coding-activity-row even-flex space-down">
         <Animation 
           element={
              <CodingCard 
@@ -73,7 +81,7 @@ const ProjectsPage = () => {
           card
           right
         />
-      </div>
+      </section>
 
       <Footer />
     </div>

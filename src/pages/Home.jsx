@@ -22,7 +22,7 @@ const Home = () => {
 
         <h1 className="title">My Favourite Games</h1>
 
-        <div className="favourite-games middle-box card-group">
+        <section className="favourite-games middle-box card-group">
           <Animation
             element={
               <GameCard
@@ -61,7 +61,7 @@ const Home = () => {
             card
             delay={0.5}
           />
-        </div>
+        </section>
       
       <Footer />
     </main>
