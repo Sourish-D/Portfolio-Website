@@ -14,11 +14,11 @@ const Background = () => {
     <main>
       <Navbar />
 
-      <Animation element = {<Education />} first />
+      <Animation element={<Education />} first />
 
       <h1 className="title">Extracurriculars</h1>
       <section className="card-group middle-box extracurriculars">
-        <Animation 
+        <Animation
           element={
             <Extracurriculars
               title="Chess Team"
@@ -31,7 +31,7 @@ const Background = () => {
           width="100%"
           card
         />
-        <Animation 
+        <Animation
           element={
             <Extracurriculars
               title="Pi Club"
@@ -45,7 +45,7 @@ const Background = () => {
           card
           delay={0.25}
         />
-        <Animation 
+        <Animation
           element={
             <Extracurriculars
               title="Model UN"

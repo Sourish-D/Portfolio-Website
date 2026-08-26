@@ -1,4 +1,3 @@
-
 import profilePic from "../assets/profile.webp";
 
 const About = () => {

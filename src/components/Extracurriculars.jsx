@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const Extracurriculars = ({ title, image, description, time, award}) => {
+const Extracurriculars = ({ title, image, description, time, award }) => {
   const [transmuted, setTransmuted] = useState(false);
   const [flashing, setFlashing] = useState(false);
   const timersRef = useRef([]);
@@ -31,7 +31,9 @@ const Extracurriculars = ({ title, image, description, time, award}) => {
       className={`extracurricular-card standard-block center-text ${flashing ? "flash" : ""}`}
     >
       <h1 className="important-text">{title}</h1>
-      <div className={`ec-block distribute-column-text ec-block-two ${transmuted ? "ec-closed" : ""}`}>
+      <div
+        className={`ec-block distribute-column-text ec-block-two ${transmuted ? "ec-closed" : ""}`}
+      >
         <p>
           <b>Executive</b>
           <br />

@@ -65,7 +65,9 @@ const Experience = () => {
     setFlashing(true);
 
     setTimeout(() => {
-      setIndex((prevIndex) => (prevIndex >= experiences.length - 1 ? 0 : prevIndex + 1));
+      setIndex((prevIndex) =>
+        prevIndex >= experiences.length - 1 ? 0 : prevIndex + 1,
+      );
     }, 150);
 
     setTimeout(() => {
@@ -78,7 +80,9 @@ const Experience = () => {
     setFlashing(true);
 
     setTimeout(() => {
-      setIndex((prevIndex) => (prevIndex <= 0 ? experiences.length - 1 : prevIndex - 1));
+      setIndex((prevIndex) =>
+        prevIndex <= 0 ? experiences.length - 1 : prevIndex - 1,
+      );
     }, 100);
 
     setTimeout(() => {
@@ -87,10 +91,12 @@ const Experience = () => {
   };
 
   return (
-    <section className={`experience standard-block middle-box double-grid ${flashing ? "flash" : ""}`}>
-      <button 
-        type="button" 
-        className="experience-left" 
+    <section
+      className={`experience standard-block middle-box double-grid ${flashing ? "flash" : ""}`}
+    >
+      <button
+        type="button"
+        className="experience-left"
         onClick={swapLeft}
         aria-label="Next experience"
       >
@@ -100,7 +106,10 @@ const Experience = () => {
       <div className="experience-left-side distribute-column-text">
         <h1 className="important-text">{experiences[index].role}</h1>
         <h2 className="important-text">{experiences[index].place}</h2>
-        <img src={experiences[index].image} alt={`${experiences[index].role} at ${experiences[index].place}`} />
+        <img
+          src={experiences[index].image}
+          alt={`${experiences[index].role} at ${experiences[index].place}`}
+        />
       </div>
 
       <div className="experience-right-side">
@@ -111,9 +120,9 @@ const Experience = () => {
         </ul>
       </div>
 
-      <button 
-        type="button" 
-        className="experience-right" 
+      <button
+        type="button"
+        className="experience-right"
         onClick={swapRight}
         aria-label="Previous experience"
       >

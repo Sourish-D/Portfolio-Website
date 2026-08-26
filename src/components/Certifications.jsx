@@ -28,9 +28,7 @@ const Certifications = () => {
       <h1 className="standard-block important-text">View My Certificates!</h1>
       <div className="standard-block certificates-content even-flex">
         <div className="certificates-card distribute-column-text right-border">
-          <button onClick={() => changeCertificate(0)}>
-            Java - Codeyoung
-          </button>
+          <button onClick={() => changeCertificate(0)}>Java - Codeyoung</button>
           <button onClick={() => changeCertificate(1)}>
             Web Dev - Codeyoung
           </button>
