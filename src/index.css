@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap");
 
-html, body, #root {
-  height:100%;
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
-body{
-  background:url("assets/opus_magnum_bg.png") center top / 100% auto repeat-y;
+body {
+  background: url("assets/opus_magnum_bg.png") center top / 100% auto repeat-y;
 }
 h1 {
-  font-size:2rem;
+  font-size: 2rem;
 }
 h2 {
   font-size: 1rem;
@@ -18,25 +20,28 @@ h3 {
   font-size: 0.85rem;
 }
 p {
-  font-size:0.75rem;
+  font-size: 0.75rem;
 }
 
 /* GENERAL */
 * {
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
-.space-up, .title {
+.space-up,
+.title {
   margin-top: 4rem;
 }
-.space-down, .title {
+.space-down,
+.title {
   margin-bottom: 4rem;
 }
 .middle-box {
-  width:75%;
-  margin-left:12.5%;
+  width: 75%;
+  margin-left: 12.5%;
 }
-.standard-block, .title {
+.standard-block,
+.title {
   background-image: url("assets/parchment.jpg");
   background-size: 100% 100%;
   background-position: center;
@@ -47,12 +52,13 @@ p {
   border-image-repeat: round;
   padding: 3%;
 }
-.center-text, .title {
-  text-align:center;
+.center-text,
+.title {
+  text-align: center;
 }
 .double-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .row-span2 {
   grid-row: span 2;
@@ -64,16 +70,17 @@ p {
   padding-bottom: 2rem;
 }
 .even-flex {
-  display:flex;
-  justify-content:space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 .distribute-column-text {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
-.card-group, .education-course-info p {
-  display:flex;
+.card-group,
+.education-course-info p {
+  display: flex;
   justify-content: space-between;
 }
 .right-border {
@@ -82,12 +89,14 @@ p {
 .grid-inverse {
   text-align: end;
 }
-.space-mono-regular, *:not(.important-text) {
+.space-mono-regular,
+*:not(.important-text) {
   font-family: "Space Mono", monospace;
   font-weight: 400;
   font-style: normal;
 }
-.title, .important-text {
+.title,
+.important-text {
   font-family: "Cormorant Garamond", serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -112,9 +121,11 @@ p {
   height: 4rem;
   background: radial-gradient(circle at center, #1b2021 0%, #0d1011 100%);
   border-bottom: 3px solid #b8860b;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), inset 0 -2px 5px rgba(184, 134, 11, 0.3);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.8),
+    inset 0 -2px 5px rgba(184, 134, 11, 0.3);
   z-index: 100;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 /* Subtle top brass lip */
 .navbar-border-top {
@@ -142,7 +153,9 @@ p {
 .element-icon {
   font-size: 1.4rem;
   color: #8b7355;
-  transition: transform 0.4s ease, color 0.3s ease;
+  transition:
+    transform 0.4s ease,
+    color 0.3s ease;
 }
 .nav-link:hover {
   color: #ffffff;
@@ -158,14 +171,19 @@ p {
   height: 40%;
   background: linear-gradient(to bottom, transparent, #8b7355, transparent);
 }
-.navbar a.nav-link:focus, button:focus {
+.navbar a.nav-link:focus,
+button:focus {
   outline: none;
 }
-.navbar a.nav-link:focus-visible, button:focus-visible, .certificates-card button:hover {
+.navbar a.nav-link:focus-visible,
+button:focus-visible,
+.certificates-card button:hover {
   outline: 2px solid #00e5ff;
   outline-offset: -4px;
   background: rgba(0, 229, 255, 0.15);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8), inset 0 0 8px rgba(0, 229, 255, 0.4);
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.8),
+    inset 0 0 8px rgba(0, 229, 255, 0.4);
   color: #ffffff;
 }
 .navbar a.nav-link:focus-visible .element-icon {
@@ -180,8 +198,9 @@ p {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
 }
-.about-me h1, .about-me img {
-  grid-column:span 3;
+.about-me h1,
+.about-me img {
+  grid-column: span 3;
 }
 .about-me p {
   grid-column: span 7;
@@ -189,24 +208,24 @@ p {
 }
 .about-me img {
   border-radius: 50%;
-  width:75%;
+  width: 75%;
   align-self: center;
   justify-self: center;
   aspect-ratio: 1 / 1;
 }
 /* Spotify Section */
 .spotify {
-  padding:0%;
+  padding: 0%;
 }
 .spotify > * {
-  padding:3%;
+  padding: 3%;
 }
 .spotify-now-playing {
   padding-right: 3%;
 }
-.spotify-img{
-  margin-left:10%;
-  width:80%;
+.spotify-img {
+  margin-left: 10%;
+  width: 80%;
   border-radius: 50%;
   animation: 10s spin linear infinite;
 }
@@ -234,7 +253,7 @@ p {
   position: relative;
 }
 .favourite-games-card img {
-  width:80%;
+  width: 80%;
   aspect-ratio: 1/1;
 }
 .favourite-games-card button {
@@ -266,14 +285,14 @@ p {
 /* ****FOOTER**** */
 .footer {
   position: relative;
-  bottom:0;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  border-width: 24px 0 0 0 ;
+  border-width: 24px 0 0 0;
 }
 .footer > * {
-  height:6em;
+  height: 6em;
 }
 
 /* ****BACKGROUND**** */
@@ -290,7 +309,7 @@ p {
 }
 .education-course-info-bar {
   width: 100%;
-  min-height:10px;
+  min-height: 10px;
   background-color: gray;
 }
 .education-course-info-bar div {
@@ -302,7 +321,7 @@ p {
 .extracurricular-card {
   position: relative;
   overflow: hidden;
-  width:100%;
+  width: 100%;
 }
 .extracurricular-card img {
   aspect-ratio: 1/1;
@@ -313,7 +332,7 @@ p {
   padding: 0.5rem;
 }
 .ec-block-two {
-  height:60%;
+  height: 60%;
   position: absolute;
 }
 .ec-block {
@@ -354,11 +373,11 @@ p {
   position: relative;
 }
 .experience img {
-  width:90%;
+  width: 90%;
   aspect-ratio: 16/9;
 }
 .experience-right-side {
-  margin-top:3rem;
+  margin-top: 3rem;
 }
 .experience-left {
   left: 0;
@@ -446,7 +465,7 @@ p {
 
 /* Projects */
 .projects-row {
-  position:relative;
+  position: relative;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -478,8 +497,8 @@ p {
 }
 .projects-row-display-content {
   width: 100%;
-  opacity:0;
-  transform:translateY(25%);
+  opacity: 0;
+  transform: translateY(25%);
 }
 .projects-row-display-content.visible {
   animation: inDown 0.3s ease-in forwards;
@@ -516,8 +535,8 @@ p {
   z-index: 2;
 }
 .contribution-graph-block {
-  width:80%;
-  margin-left:10%;
+  width: 80%;
+  margin-left: 10%;
 }
 .contribution-graph {
   display: grid;
@@ -560,7 +579,7 @@ p {
   position: absolute;
   width: 50%;
   border-radius: 0 0 50% 50%;
-  border-top:none;
+  border-top: none;
   left: 25%;
   top: 75%;
   transition: top 0.3s ease;
@@ -571,8 +590,8 @@ p {
 }
 .coding-card-wrapper {
   position: relative;
-  text-decoration:none;
-  color:black;
+  text-decoration: none;
+  color: black;
 }
 /* Animation */
 .pull-container {
@@ -609,7 +628,7 @@ p {
   left: 5.6%;
   top: 48%;
   width: 5.5%;
-  z-index:1;
+  z-index: 1;
 }
 .orbit {
   position: relative;
@@ -620,7 +639,7 @@ p {
   transform-origin: 8.7% 57%;
   transform: rotate(45deg);
   transition: transform 0.75s cubic-bezier(0.65, 0, 0.35, 1);
-  z-index:3;
+  z-index: 3;
 }
 .orbit.pulled {
   transform: rotate(0deg);
@@ -628,7 +647,7 @@ p {
 .about-wrapper {
   position: relative;
   height: fit-content;
-  width:100%;
+  width: 100%;
   opacity: 0.5;
   transition: opacity 0.75s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -645,14 +664,14 @@ p {
   transform: rotate(180deg);
 }
 .opus-arm.card {
-  width:90%;
-  left:-42%;
-  top:48%;
+  width: 90%;
+  left: -42%;
+  top: 48%;
 }
 .opus-arm.card.right {
-  left:auto;
-  right:-95%;
-  top:46%;
+  left: auto;
+  right: -95%;
+  top: 46%;
 }
 .opus-arm-socket.right {
   left: auto;
@@ -661,12 +680,12 @@ p {
   width: 6%;
 }
 .opus-arm-socket.card {
-  width:30%;
-  left:-40%;
+  width: 30%;
+  left: -40%;
 }
 .opus-arm-socket.card.right {
-  right:-40%;
-  left:auto;
+  right: -40%;
+  left: auto;
 }
 .orbit.card {
   transform-origin: -42% 48%;
@@ -688,26 +707,26 @@ p {
   margin-top: 6rem;
 }
 .pull-container.down {
-  margin-top:4rem;
+  margin-top: 4rem;
 }
 .favourite-games > * {
   width: 25%;
 }
 .extracurriculars > * {
-  width:25%;
+  width: 25%;
 }
 .coding-activity-row > * {
-  width:20%;
+  width: 20%;
 }
 .project-track {
-  z-index:-1;
-  position:absolute;
-  top:88%;
+  z-index: -1;
+  position: absolute;
+  top: 88%;
 }
 .project-track.left {
-  left:-5%;
+  left: -5%;
 }
 .project-track.right {
-  left:auto;
-  right:-5%;
+  left: auto;
+  right: -5%;
 }

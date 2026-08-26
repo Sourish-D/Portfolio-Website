@@ -3,8 +3,11 @@ import spotify from "../assets/spotify.png";
 import album from "../assets/album.jpg";
 
 const Spotify = () => {
-  const [musicData, setMusicData] = useState({ track: { isPlaying: false }, stats: {} });
-  const [selectedPeriod, setSelectedPeriod] = useState('overall');
+  const [musicData, setMusicData] = useState({
+    track: { isPlaying: false },
+    stats: {},
+  });
+  const [selectedPeriod, setSelectedPeriod] = useState("overall");
 
   useEffect(() => {
     async function fetchMusicData() {
@@ -26,7 +29,7 @@ const Spotify = () => {
 
   function formatTimestamp(uts) {
     if (!uts) return "Just now";
-    
+
     // eslint-disable-next-line
     const now = Math.floor(Date.now() / 1000);
     const diffSeconds = now - parseInt(uts, 10);
@@ -37,16 +40,21 @@ const Spotify = () => {
     const hours = Math.floor(minutes / 60);
     if (hours < 24) return `${hours}h ago`;
 
-    return new Date(uts * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return new Date(uts * 1000).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   }
 
   const { track, stats } = musicData;
-  
+
   return (
     <section className="spotify standard-block middle-box double-grid center-text">
       {/* Left Side: Now Listening To */}
       <div className="spotify-now-playing right-border">
-        <h1 className="important-text">{track.isPlaying ? "Currently Listening" : "Last Played on Last.fm"}</h1>
+        <h1 className="important-text">
+          {track.isPlaying ? "Currently Listening" : "Last Played on Last.fm"}
+        </h1>
         <div className="double-grid">
           <img
             src={track?.albumImageUrl || spotify}
@@ -71,7 +79,11 @@ const Spotify = () => {
               <h3>{track?.artist || "N/A"}</h3>
             </div>
             <div>
-              <h3>{track.isPlaying ? "Playing Now" : `Played ${formatTimestamp(track.date?.uts)}`}</h3>
+              <h3>
+                {track.isPlaying
+                  ? "Playing Now"
+                  : `Played ${formatTimestamp(track.date?.uts)}`}
+              </h3>
             </div>
           </div>
         </div>
@@ -90,27 +102,27 @@ const Spotify = () => {
           <h2>Top Album</h2>
         </div>
         <div className="spotify-period-buttons">
-          <button 
-            className={selectedPeriod === '7day' ? 'active' : ''} 
-            onClick={() => setSelectedPeriod('7day')}
+          <button
+            className={selectedPeriod === "7day" ? "active" : ""}
+            onClick={() => setSelectedPeriod("7day")}
           >
             7 Days
           </button>
-          <button 
-            className={selectedPeriod === '1month' ? 'active' : ''} 
-            onClick={() => setSelectedPeriod('1month')}
+          <button
+            className={selectedPeriod === "1month" ? "active" : ""}
+            onClick={() => setSelectedPeriod("1month")}
           >
             30 Days
           </button>
-          <button 
-            className={selectedPeriod === '6month' ? 'active' : ''} 
-            onClick={() => setSelectedPeriod('6month')}
+          <button
+            className={selectedPeriod === "6month" ? "active" : ""}
+            onClick={() => setSelectedPeriod("6month")}
           >
             6 Months
           </button>
-          <button 
-            className={selectedPeriod === 'overall' ? 'active' : ''} 
-            onClick={() => setSelectedPeriod('overall')}
+          <button
+            className={selectedPeriod === "overall" ? "active" : ""}
+            onClick={() => setSelectedPeriod("overall")}
           >
             All Time
           </button>
