@@ -7,19 +7,8 @@ import portfolio from "../assets/portfolio.png";
 import esp_car from "../assets/esp_car.webp";
 import EspCarVid from "../assets/EspCarVid.mp4";
 import PortfolioDevlogThree from "../assets/PortfolioDevlogThree.mp4";
+import {  useState, useEffect } from 'react';
 
-const githubStatistics = [
-  {info: "s", statName: "Commits"},
-  {info: "s", statName: "Repos"},
-  {info: "s", statName: "Pull Requests"},
-  {info: "s", statName: "Followers"}
-];
-const leetCodeStatistics = [
-  {info:"1", statName: "Problems Solved"},
-  {info:"1", statName: "Easy"},
-  {info:"0", statName: "Medium"},
-  {info:"0", statName: "Hard"}
-]
 const projectInfo = [
   {
     title:"Portfolio Website", 
@@ -44,8 +33,56 @@ const projectInfo = [
     video: EspCarVid
   }
 ]
+const ProjectsPage = ({leetCodeUsername, githubUsername}) => {
+  const [leetColumns, setLeetColumns] = useState([]);
+  const [gitColumns, setGitColumns] = useState([]);
+  //LeetCode API
+  useEffect(() => {
+    fetch(`https://alfa-leetcode-api.onrender.com/${leetCodeUsername}/solved`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setLeetColumns([
+            {statName: "Total Solved: ", info: data.totalSolved || 0},
+            {statName: "Easy: ", info: data.easySolved || 0},
+            {statName: "Medium: ", info: data.mediumSolved || 0},
+            {statName: "Hard: ", info: data.hardSolved || 0}
+          ]);
+        }
+      })
+    .catch((err) => {
+      console.error("Failed to fetch LeetCode stats: ", err);
+    })
+  }, [leetCodeUsername]);
 
-const ProjectsPage = () => {
+  //Github API
+  useEffect(() => {
+    const fetchGitHubData = async () => {
+        try {
+            const userResponse = await fetch(`https://api.github.com/users/${githubUsername}`);
+            const userData = await userResponse.json();
+            const eventsResponse = await fetch(`https://api.github.com/users/${githubUsername}/events/public?per_page=100`);
+            const events = await eventsResponse.json();
+            const reposResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=1`);
+            const reposData = await reposResponse.json();
+            const latestRepoName = Array.isArray(reposData) && reposData.length > 0 
+                ? reposData[0].name 
+                : "None";
+            setGitColumns([
+                { info: events.length > 0 ? `${events.length}+` : "0", statName: "Recent Events" },
+                { info: userData.public_repos ?? 0, statName: "Repos" },
+                { info: userData.followers ?? 0, statName: "Followers" },
+                { info: latestRepoName, statName: "Latest Repo"}
+            ]);
+
+        } catch (error) {
+            console.err("Error fetching GitHub data:", error);
+        }
+    };
+
+    fetchGitHubData();
+  }, [githubUsername]);
+
   return (
     <div>
       <Navbar />
@@ -62,8 +99,9 @@ const ProjectsPage = () => {
           element={
              <CodingCard 
               title="Github"
-              columns={githubStatistics}
+              columns={gitColumns}
               link="https://github.com/Sourish-D"
+              username="Sourish-D"
             />
           }
           width="100%"
@@ -73,8 +111,10 @@ const ProjectsPage = () => {
           element={
              <CodingCard 
               title="LeetCode"
-              columns={leetCodeStatistics}
+              columns={leetColumns}
               link="https://leetcode.com/u/GodCREEPERGOD/"
+              leet
+              username="GodCREEPERGOD"
             />
           }
           width="100%"

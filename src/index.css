@@ -93,6 +93,13 @@ p {
   font-weight: 700;
   font-style: normal;
 }
+.column-grid10 {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+.column-span6 {
+  grid-column: span 6;
+}
 
 /* ****Navbar**** */
 .navbar {
