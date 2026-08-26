@@ -1,42 +1,44 @@
-const contributions = [
-    { date: "2026-08-01", count: 0 },
-    { date: "2026-08-02", count: 2 },
-    { date: "2026-08-03", count: 5 },
-    { date: "2026-08-04", count: 1 },
-    { date: "2026-08-05", count: 8 },
-    { date: "2026-08-06", count: 12 },
-    { date: "2026-08-07", count: 3 },
+import { useEffect, useState } from 'react';
 
-    { date: "2026-08-08", count: 0 },
-    { date: "2026-08-09", count: 4 },
-    { date: "2026-08-10", count: 7 },
-    { date: "2026-08-11", count: 2 },
-    { date: "2026-08-12", count: 10 },
-    { date: "2026-08-13", count: 1 },
-    { date: "2026-08-14", count: 6 },
+const generateDefaultDays = () => {
+    const days = [];
+    const today = new Date();
+    for (let i = 30; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(today.getDate() - i);
+        days.push({
+            date: d.toISOString().split('T')[0],
+            count: 0,
+        });
+    }
+    return days;
+};
 
-    { date: "2026-08-15", count: 0 },
-    { date: "2026-08-16", count: 3 },
-    { date: "2026-08-17", count: 9 },
-    { date: "2026-08-18", count: 15 },
-    { date: "2026-08-19", count: 4 },
-    { date: "2026-08-20", count: 2 },
-    { date: "2026-08-21", count: 11 },
+// Helper to check cache synchronously during initialization
+const getInitialData = (leet, username) => {
 
-    { date: "2026-08-22", count: 0 },
-    { date: "2026-08-23", count: 1 },
-    { date: "2026-08-24", count: 5 },
-    { date: "2026-08-25", count: 8 },
-    { date: "2026-08-26", count: 13 },
-    { date: "2026-08-27", count: 2 },
-    { date: "2026-08-28", count: 7 },
+    const platformPrefix = leet ? 'leetcode_cache_' : 'github_cache_';
+    const cacheKey = `${platformPrefix}${username}`;
+    const cachedData = localStorage.getItem(cacheKey);
+    const cachedTime = localStorage.getItem(`${cacheKey}_time`);
+    const oneDay = 24 * 60 * 60 * 1000;
 
-    { date: "2026-08-29", count: 0 },
-    { date: "2026-08-30", count: 6 },
-    { date: "2026-08-31", count: 10 },
-];
+    if (cachedData && cachedTime && Date.now() - parseInt(cachedTime, 10) < oneDay) {
+        try {
+            return { data: JSON.parse(cachedData), loading: false };
+        } catch {
+            // fallback if JSON parse fails
+        }
+    }
 
-const CodingCard = ({title, columns, link}) => {
+    return { data: generateDefaultDays(), loading: true };
+};
+
+const CodingCard = ({ title, columns, link, leet = false, username }) => {
+    const initial = getInitialData(leet, username);
+    const [contributions, setContributions] = useState(initial.data);
+    const [loading, setLoading] = useState(initial.loading);
+
     const getLevel = (count) => {
         if (count === 0) return 0;
         if (count <= 2) return 1;
@@ -44,38 +46,143 @@ const CodingCard = ({title, columns, link}) => {
         if (count <= 10) return 3;
         return 4;
     };
-  return (
-    <a href={link} className="coding-card-wrapper">
-        <div className="coding-card standard-block text-center">
-            <div className="card-image-overlay" />
-            <h1 className="important-text">{title}</h1>
-            
-            <div className="contribution-graph-block">
-                <p className="coding-card-sub-heading important-text">Contributions: </p>
-                <div className="contribution-graph">
-                    {contributions.map((day) => (
-                        <div
-                            className={`contribution-day level-${getLevel(day.count)}`}
-                            key={day.date}
-                        />
+
+    useEffect(() => {
+        if (!username) {
+            return;
+        }
+
+        const platformPrefix = leet ? 'leetcode_cache_' : 'github_cache_';
+        const cacheKey = `${platformPrefix}${username}`;
+        let isMounted = true;
+
+        const fetchData = async () => {
+            try {
+                let days = [];
+                if (leet) {
+                    const apiUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
+                    const proxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(apiUrl)}`;
+                    
+                    const res = await fetch(proxyUrl);
+                    if (!res.ok) throw new Error('LeetCode API error');
+                    const data = await res.json();
+                    
+                    const rawCalendar = data.submissionCalendar || {};
+                    const calendarMap = {};
+
+                    Object.entries(rawCalendar).forEach(([timestamp, count]) => {
+                        const dateStr = new Date(parseInt(timestamp, 10) * 1000)
+                            .toISOString()
+                            .split('T')[0];
+                        calendarMap[dateStr] = count;
+                    });
+
+                    const today = new Date();
+                    for (let i = 30; i >= 0; i--) {
+                        const d = new Date();
+                        d.setDate(today.getDate() - i);
+                        const dateStr = d.toISOString().split('T')[0];
+
+                        days.push({
+                            date: dateStr,
+                            count: calendarMap[dateStr] || 0,
+                        });
+                    }
+                } else {
+                    // --- GITHUB FETCH ---
+                    console.log("fetching Github");
+                    const eventsUrl = `https://api.github.com/users/${username}/events/public?per_page=100`;
+                    const res = await fetch(eventsUrl);
+                    
+                    if (!res.ok) throw new Error('GitHub API error');
+                    const events = await res.json();
+                    console.log("GitHub events received:", events);
+
+                    const daysMap = {};
+                    const today = new Date();
+                    for (let i = 30; i >= 0; i--) {
+                        const d = new Date();
+                        d.setDate(today.getDate() - i);
+                        const dateStr = d.toISOString().split('T')[0];
+                        daysMap[dateStr] = 0;
+                    }
+
+                    if (Array.isArray(events)) {
+                        events.forEach(event => {
+                            const dateStr = event.created_at.split('T')[0];
+                            if (daysMap[dateStr] !== undefined) {
+                                daysMap[dateStr] += 1;
+                            }
+                        });
+                    }
+
+                    days = Object.keys(daysMap).map(dateStr => ({
+                        date: dateStr,
+                        count: daysMap[dateStr]
+                    }));
+                }
+                if (!isMounted) return;
+
+                // Save to localStorage cache
+                localStorage.setItem(cacheKey, JSON.stringify(days));
+                localStorage.setItem(`${cacheKey}_time`, Date.now().toString());
+
+                setContributions(days);
+                setLoading(false);
+
+            } catch (err) {
+                if (!isMounted) return;
+                console.error(`Failed to fetch ${leet ? 'LeetCode' : 'GitHub'} contribution data:`, err);
+                setContributions(generateDefaultDays());
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+        return () => {
+            isMounted = false;
+        };
+    }, [username, leet, loading]);
+
+    return (
+        <a href={link} className="coding-card-wrapper" target="_blank" rel="noopener noreferrer">
+            <div className="coding-card standard-block text-center">
+                <div className="card-image-overlay" />
+                <h1 className="important-text">{title}</h1>
+                
+                <div className="contribution-graph-block">
+                    <p className="coding-card-sub-heading important-text">Contributions: </p>
+                    <div className="contribution-graph">
+                        {loading ? (
+                            Array.from({ length: 31 }).map((_, i) => (
+                                <div className="contribution-day level-0" key={i} />
+                            ))
+                        ) : (
+                            contributions.map((day) => (
+                                <div
+                                    className={`contribution-day level-${getLevel(day.count)}`}
+                                    key={day.date}
+                                    title={`${day.date}: ${day.count} submissions`}
+                                />
+                            ))
+                        )}
+                    </div>
+                </div>
+
+                <div className="coding-statistics">
+                    {columns.map((row, index) => (
+                        <div className="column-grid10" key={row.statName || index}>
+                            <p className="coding-stats-info column-span6">{row.statName}</p>
+                            <p className="coding-stats-name">{row.info}</p>
+                        </div>
                     ))}
                 </div>
             </div>
-
-            <div className="coding-statistics">
-                {columns.map((row, index) => (
-                    <div className="double-grid" key={row.statName || index}>
-                        <p className="coding-stats-info">{row.info}</p>
-                        <p className="coding-stats-name">{row.statName}</p>
-                    </div>
-                ))}
+            <div className="coding-card-pop-up standard-block center-text">
+                <p>See Account!</p>
             </div>
-        </div>
-        <div className="coding-card-pop-up standard-block center-text">
-            <p>See Account!</p>
-        </div>
-    </a>
-  )
-}
+        </a>
+    );
+};
 
-export default CodingCard
+export default CodingCard;

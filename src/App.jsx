@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/background" element={<Background />} />
-        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects" element={<ProjectsPage leetCodeUsername="GodCREEPERGOD" githubUsername="Sourish-D" />} />
       </Routes>
     </BrowserRouter>
   )
