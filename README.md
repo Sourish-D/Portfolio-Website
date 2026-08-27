@@ -1,72 +1,68 @@
 # Personal Website
 
-<b>Hey! Welcome to my Personal Website!</b>
+Interactive, Industrial-themed React / Vite Website Hosted on Vercel to display my Projects, Accomplishments, and Interests.
 
-<a href="https://sourish-d.github.io/Portfolio-Website/">Link to the Website!</a>
+<p align="center">
+    <img src="./src/assets/portfolio.png" alt="Screenshot From Website" width="400"/>
+</p>
+<p align="center">
+    <a href="https://sourish-d.github.io/Portfolio-Website/">Link to the Website!</a>
+</p>
 
-I'm using this project as a showcase of my web development skills, projects and interests. This website originally started as a project using HTML, CSS and Javascript. As the project grew, I decided to transition to React to make the site more interactive, and easier to expand.
 
-<b>Currently, I'm using:</b>
-- React
-- Javascript
-- CSS
-- Vite
+---
 
-<h1>API Integrations</h1>
+## Description
 
-One of my main goals for this project is to experiment with several APIs and use them to make the website more interactive and personal. 
+### Features
 
-Some examples are:
-- Spotify
-- Letterboxd
-- Github
+- **Opus Magnum Theme**
+- **CSS Animations**
+- **API Integrations** with Last.FM, Leetcode, and Github
+- **Fully Responsive** across mobile, tablet, and desktop viewports
+- **Local Caching** to manage API rate limits
 
-<h1>Design</h1>
+---
+
+### Design
 
 The visual design of the website takes heavy inspiration from Opus Magnum, particularly its mechanical and industrial aesthetic. I'm also experimenting with animations and interactive elements to make the website feel less like a traditional portfolio and more like an interactive project.
 
-<b>The website is currently under development, but you're free to explore for now! Thanks for checking out my project! </b>
+---
 
-<h1> Project Layout: </h1> 
+### Quick Start & Local Development
 
-HOME                               <br />
-│                                  <br />
-├── About Me                       <br />
-│                                  <br />
-├── Spotify API                    <br />
-│&emsp;│                           <br />
-│&emsp;├── Currently Listening     <br />
-│&emsp;│                           <br />
-│&emsp;└── Statistics              <br />
-│                                  <br />
-├── My Favourite Games             <br />
-│                                  <br />
-└── Footer                         <br />
-                                   <br />
-                                   <br />
-Background                         <br />
-│                                  <br />
-├── Education                      <br />
-│                                  <br />
-├── Extracurriculars               <br />
-│                                  <br />
-├── Experience                     <br />
-│                                  <br />
-├── Certifications                 <br />
-│                                  <br />
-└── Footer                         <br />
-                                   <br />
-                                   <br />
-Projects                           <br />
-│                                  <br />
-├── Projects                       <br />
-│&emsp;│                           <br />
-│&emsp;├── ESP32 Car               <br />
-│&emsp;│                           <br />
-│&emsp;└── Portfolio Website       <br />
-│                                  <br />
-├── LeetCode                       <br />
-│                                  <br />
-├── GitHub                         <br />
-│                                  <br />
-└── Footer  
+To run this project locally on your machine, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone [https://github.com/sourish-d/Portfolio-Website.git](https://github.com/sourish-d/Portfolio-Website.git)
+   cd Portfolio-Website
+   cd my-portfolio
+2. **Install Dependencies**
+
+    ```bash
+    npm install
+3. **Run developmenet Server**
+
+    ```bash
+    npm run dev
+
+---
+
+### Technical Choices
+
+The project started as a vanilla HTML/CSS/JS site, but was transitioned to React and Vite to handle the growing component tree, easily re-use assets, and use more complex state logic.
+
+The integration of the Leetcode and Github APIs didn't have to be on the backend, but because of that it caused the site to call upon the API a lot more frequently, which during development, caused me to run out of tokens. To circumvent this problem, I stored the info that comes from the API into a local cache, that way when I do reload the site, it pulls from the cache rather than using those tokens all over again.
+
+---
+
+### Credits
+
+- Framework & Built Tool: **React, Vite, and Vercel**
+- Design Inspiration: **Opus Magnum (Zachtronics)**
+- Typography: **Google Fonts**
+
+**The website is currently under development, but you're free to explore for now! Thanks for checking out my project!**
