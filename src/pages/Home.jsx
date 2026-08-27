@@ -13,7 +13,7 @@ import nomifactory from "../assets/nomifactory.jpg";
 
 const Home = () => {
   return (
-    <main>
+    <main className="space-up">
       <Navbar />
 
       <Animation element={<About />} first />

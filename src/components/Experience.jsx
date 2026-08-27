@@ -17,6 +17,14 @@ const experiences = [
       "Independently planned and taught lessons for an assigned student level.",
       "Monitored student progress throughout lessons.",
     ],
+    highlights: [
+      "Teacher for Baala Vihaar Program",
+      "Taught groups of 10-15 Students",
+      "Fostered a supportive environment",
+      "Led activities during volunteer programs",
+      "Collaborated with teachers",
+      "Planned and taught lessons",
+    ]
   },
   {
     role: "Newspaper Delivery",
@@ -30,6 +38,14 @@ const experiences = [
       "Maintained a high level of accuracy while handling deliveries and customer requests.",
       "Developed strong time management, organizational, and problem-solving skills through daily responsibilities.",
     ],
+    highlights: [
+      "Delivered newspapers to customers",
+      "Organized bundles efficiently",
+      "Planned delivery routes",
+      "Demonstrated reliability through independent work",
+      "Maintained a high level of accuracy",
+      "Developed organizational skills"
+    ]
   },
   {
     role: "Model UN SOMA Delegate - Norway",
@@ -42,6 +58,13 @@ const experiences = [
       "Participated in diplomatic negotiations with delegates from other countries to draft collaborative resolutions.",
       "Strengthened public speaking, research, critical thinking, and negotiation skills through formal debate.",
     ],
+    highlights: [
+      "Represented Norway",
+      "Conducted research on international policies",
+      "Developed and presented policy proposals",
+      "Participated in diplomatic negotiations with other delegates",
+      "Strengthened public speaking, and negotiation skills",
+    ]
   },
 ];
 
@@ -115,7 +138,10 @@ const Experience = () => {
       <div className="experience-right-side">
         <ul>
           {experiences[index].description.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i} class="desktop-view">{item}</li>
+          ))}
+          {experiences[index].highlights.map((item, i) => (
+            <li key={i} class="mobile-view">{item}</li>
           ))}
         </ul>
       </div>

@@ -93,7 +93,7 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
   }, [githubUsername]);
 
   return (
-    <div>
+    <main className="space-up">
       <Navbar />
 
       <h1 className="title">Projects</h1>
@@ -130,7 +130,7 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
       </section>
 
       <Footer />
-    </div>
+    </main>
   );
 };
 

@@ -13,19 +13,25 @@ const Animation = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [pulled, setPulled] = useState(false);
+  const [isClipped, setIsClipped] = useState(true);
   const containerRef = useRef(null);
+  const pulledRef = useRef(false);
   const delayStyle = pulled ? { transitionDelay: `${delay}s` } : {};
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        pulledRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          setIsClipped(false);
+        }
         setPulled(entry.isIntersecting);
       },
       {
         threshold: 0.3,
       },
     );
-    
+
     const currentRef = containerRef.current;
 
     if (currentRef) {
@@ -39,9 +45,17 @@ const Animation = ({
       observer.disconnect();
     };
   }, []);
+  function handleOrbitTransitionEnd(event) {
+    if (event.propertyName === "transform" && !pulledRef.current) {
+      setIsClipped(true);
+    }
+  }
   useEffect(() => {
     function handleClickOutside(event) {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
         setIsActive(false);
       }
     }
@@ -59,6 +73,7 @@ const Animation = ({
     <div
       className={`pull-container 
         ${pulled ? "visible" : "hidden"}
+        ${isClipped ? "clipped" : ""}
         ${right ? "right" : ""} 
         ${first ? "first" : ""} 
         ${down ? "down" : ""} 
@@ -74,6 +89,7 @@ const Animation = ({
           ${isActive ? "active" : ""}
         `}
         style={delayStyle}
+        onTransitionEnd={handleOrbitTransitionEnd}
       >
         <div
           className={`about-wrapper 

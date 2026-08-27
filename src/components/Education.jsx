@@ -1,6 +1,6 @@
 const Education = () => {
   return (
-    <section className="education standard-block middle-box even-flex space-up">
+    <section className="education standard-block middle-box even-flex">
       <div className="right-border distribute-column-text">
         <h1 className="important-text">Education</h1>
         <div className="education-details double-grid special">
@@ -39,11 +39,11 @@ const Education = () => {
       </div>
       <div className="education-course-achievements distribute-column-text">
         <h2 className="important-text">Achievements</h2>
-        <p>Grade 8 Gauss Contest - 1st Place Schoolwide</p>
-        <p>Grade 9 Pascal Contest - 1st Place Schoolwide, Distinction</p>
-        <p>Grade 10 Cayley Contest - 1st Place Schoolwide, Distinction</p>
-        <p>Chess Club - Junior Most Spirited 2025</p>
-        <p>Pi Club - Junior Most Valuable 2025</p>
+        <p><b>Grade 8 Gauss Contest</b> - 1st Place Schoolwide</p>
+        <p><b>Grade 9 Pascal Contest</b> - 1st Place Schoolwide, Distinction</p>
+        <p><b>Grade 10 Cayley Contest</b> - 1st Place Schoolwide, Distinction</p>
+        <p><b>Chess Club</b> - Junior Most Spirited 2025</p>
+        <p><b>Pi Club</b> - Junior Most Valuable 2025</p>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ import Animation from "../components/Animation.jsx";
 
 const Background = () => {
   return (
-    <main>
+    <main className="space-up">
       <Navbar />
 
       <Animation element={<Education />} first />

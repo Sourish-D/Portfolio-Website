@@ -2,8 +2,9 @@ import profilePic from "../assets/profile.webp";
 
 const About = () => {
   return (
-    <section className="standard-block middle-box about-me center-text space-up space-down">
+    <section className="standard-block middle-box about-me center-text space-down">
       <h1 className="important-text">About Me</h1>
+      <img src={profilePic} alt="Profile Picture" />
       <p>
         Hey! Welcome to my personal website. My name is Sourish, and I'm a high
         school student with a passion for engineering and technology. I'm
@@ -30,7 +31,6 @@ const About = () => {
         Anyway, without further ado, feel free to explore, take a look around,
         and check out some of the things I've built!
       </p>
-      <img src={profilePic} alt="Profile Picture" />
     </section>
   );
 };

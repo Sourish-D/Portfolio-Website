@@ -74,53 +74,115 @@ const ProjectRow = ({ project1, project2 }) => {
   const activeGithub = isSecondOpen ? project2.github : project1.github;
 
   return (
-    <section className="projects-row">
-      <ProjectCard
-        className="project-card-left"
-        title={project1.title}
-        img={project1.img}
-        lessons={project1.lesson}
-        status={project1.status}
-        onClick={() => setOpen(1)}
-      />
+    <section>
+      <div className="layout-mobile">
+        <div className="projects-row-display-content standard-block visible center-text">
+          <h1 className="important-text">{project1.title}</h1>
 
-      <div
-        className={`projects-row-display-content standard-block center-text ${
-          isVisible ? "visible" : ""
-        } ${hasOpened && !isVisible ? "project-out" : ""}`}
-      >
-        <h1 className="important-text">{activeTitle}</h1>
+          <video key={project1.video} src={project1.video} controls />
+          <div className="projects-row-display-content-text">
+            <p>{project1.desc}</p>
+            <ul>
+              <li>
+                <b>Lessons: </b>
+                {project1.lesson}
+              </li>
+              <li>
+                <b>Status: </b>
+                {project1.status}
+              </li>
+              <li>
+                <b>Components Used: </b>
+                {project1.components}
+              </li>
+              <li>
+                <b>Technologies Used: </b>
+                {project1.technologies}
+              </li>
+            </ul>
+          </div>
+          <a href={activeGithub} target="_blank" rel="noreferrer">
+              Github
+            </a>
+        </div>
+        <div className="projects-row-display-content standard-block visible center-text">
+          <h1 className="important-text">{project2.title}</h1>
 
-        <video key={activeVideo} src={activeVideo} controls />
-
-        <p>{activeDesc}</p>
-
-        <p>
-          <b>Components Used: </b>
-          {activeComponents}
-        </p>
-
-        <p>
-          <b>Technologies Used: </b>
-          {activeTechnologies}
-        </p>
-
-        <a href={activeGithub} target="_blank" rel="noreferrer">
-          Github
-        </a>
+          <video key={project2.video} src={project2.video} controls />
+          <div className="projects-row-display-content-text">
+            <p>{project2.desc}</p>
+            <ul>
+              <li>
+                <b>Lessons: </b>
+                {project2.lesson}
+              </li>
+              <li>
+                <b>Status: </b>
+                {project2.status}
+              </li>
+              <li>
+                <b>Components Used: </b>
+                {project2.components}
+              </li>
+              <li>
+                <b>Technologies Used: </b>
+                {project2.technologies}
+              </li>
+            </ul>
+          </div>
+          <a href={activeGithub} target="_blank" rel="noreferrer">
+              Github
+            </a>
+        </div>
       </div>
+      <div className="projects-row layout-desktop">
+        <ProjectCard
+          className="project-card-left"
+          title={project1.title}
+          img={project1.img}
+          lessons={project1.lesson}
+          status={project1.status}
+          onClick={() => setOpen(1)}
+        />
 
-      <ProjectCard
-        className="project-card-right"
-        title={project2.title}
-        img={project2.img}
-        lessons={project2.lesson}
-        status={project2.status}
-        onClick={() => setOpen(2)}
-      />
+        <div
+          className={`projects-row-display-content standard-block center-text ${
+            isVisible ? "visible" : ""
+          } ${hasOpened && !isVisible ? "project-out" : ""}`}
+        >
+          <h1 className="important-text">{activeTitle}</h1>
 
-      <img src={Track} className="project-track left" alt="" />
-      <img src={Track} className="project-track right" alt="" />
+          <video key={activeVideo} src={activeVideo} controls />
+
+          <p>{activeDesc}</p>
+
+          <p>
+            <b>Components Used: </b>
+            {activeComponents}
+          </p>
+
+          <p>
+            <b>Technologies Used: </b>
+            {activeTechnologies}
+          </p>
+
+          <a href={activeGithub} target="_blank" rel="noreferrer">
+            Github
+          </a>
+        </div>
+
+        <ProjectCard
+          className="project-card-right"
+          title={project2.title}
+          img={project2.img}
+          lessons={project2.lesson}
+          status={project2.status}
+          onClick={() => setOpen(2)}
+        />
+
+        <img src={Track} className="project-track left" alt="" />
+        <img src={Track} className="project-track right" alt="" />
+      </div>
     </section>
   );
 };
