@@ -103,7 +103,7 @@ const Experience = () => {
         <span aria-hidden="true">←</span>
       </button>
 
-      <div className="experience-left-side distribute-column-text">
+      <div className="experience-left-side distribute-column-text center-text">
         <h1 className="important-text">{experiences[index].role}</h1>
         <h2 className="important-text">{experiences[index].place}</h2>
         <img

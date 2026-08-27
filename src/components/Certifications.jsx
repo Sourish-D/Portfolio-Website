@@ -21,12 +21,9 @@ const Certifications = () => {
   };
 
   return (
-    <section
-      className="certificates space-up middle-box"
-      style={{ width: "60%", "margin-left": "20%" }}
-    >
+    <section className="certificates space-up middle-box">
       <h1 className="standard-block important-text">View My Certificates!</h1>
-      <div className="standard-block certificates-content even-flex">
+      <div className="standard-block certificates-content even-flex no-gap">
         <div className="certificates-card distribute-column-text right-border">
           <button onClick={() => changeCertificate(0)}>Java - Codeyoung</button>
           <button onClick={() => changeCertificate(1)}>
