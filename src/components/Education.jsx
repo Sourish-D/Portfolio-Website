@@ -1,11 +1,9 @@
 const Education = () => {
   return (
-    <section className="education standard-block middle-box even-flex">
+    <section className="education standard-block middle-box even-flex space-up">
       <div className="right-border distribute-column-text">
         <h1 className="important-text">Education</h1>
-        <h2>St. Marcellinus Catholic Secondary School</h2>
-        <h3>Mississauga, Ontario</h3>
-        <div className="education-details double-grid">
+        <div className="education-details double-grid special">
           <p>Grade 12</p>
           <p className="grid-inverse">2023-2027</p>
           <p>OSSD</p>
