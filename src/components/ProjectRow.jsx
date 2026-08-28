@@ -5,10 +5,10 @@ import Track from "../assets/Track.png";
 const ProjectRow = ({ project1, project2 }) => {
   const [hasOpened, setHasOpened] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isFirstOpen, setIsFirstOpen] = useState(false);
-  const [isSecondOpen, setIsSecondOpen] = useState(false);
+  const [activeProject, setActiveProject] = useState(0);
 
   const timersRef = useRef([]);
+  const projectDetails = [project1, project2];
 
   const clearAllTimers = () => {
     timersRef.current.forEach(clearTimeout);
@@ -21,119 +21,81 @@ const ProjectRow = ({ project1, project2 }) => {
 
   const setOpen = (i) => {
     clearAllTimers();
-    if (isVisible && ((isFirstOpen && i === 1) || (isSecondOpen && i === 2))) {
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 150);
-      setTimeout(() => {
-        setIsFirstOpen(false);
-        setIsSecondOpen(false);
-      }, 500);
+    //If the project is open and the open project is the one that they requested, turn off
+    if (isVisible && activeProject == i) {
+      timersRef.current.push(
+        setTimeout(() => {
+          setIsVisible(false);
+        }, 150),
+        setTimeout(() => {
+          setActiveProject(0);
+        }, 500),
+      );
     } else {
       if (isVisible) {
-        if (i === 1) {
+        //If the project is visible, but we're switching to the other one
+
+        timersRef.current.push(
           setTimeout(() => {
             setIsVisible(false);
-          }, 150);
+          }, 150),
           setTimeout(() => {
             setIsVisible(true);
-            setIsFirstOpen(true);
-            setIsSecondOpen(false);
-          }, 300);
-        } else {
-          setTimeout(() => {
-            setIsVisible(false);
-          }, 150);
-          setTimeout(() => {
-            setIsVisible(true);
-            setIsFirstOpen(false);
-            setIsSecondOpen(true);
-          }, 300);
-        }
+            setActiveProject(i);
+          }, 300),
+        );
       } else {
-        if (i === 1) {
-          setIsFirstOpen(true);
-        } else {
-          setIsSecondOpen(true);
-        }
+        //Project is invisible, open project and switch to the project
+        setActiveProject(i);
         setIsVisible(true);
         setHasOpened(true);
       }
     }
   };
 
-  const activeTitle = isSecondOpen ? project2.title : project1.title;
-  const activeVideo = isSecondOpen ? project2.video : project1.video;
-  const activeDesc = isSecondOpen ? project2.desc : project1.desc;
-  const activeComponents = isSecondOpen
-    ? project2.components
-    : project1.components;
-  const activeTechnologies = isSecondOpen
-    ? project2.technologies
-    : project1.technologies;
-  const activeGithub = isSecondOpen ? project2.github : project1.github;
+  const activeTitle = activeProject == 2 ? project2.title : project1.title;
+  const activeVideo = activeProject == 2 ? project2.video : project1.video;
+  const activeDesc = activeProject == 2 ? project2.desc : project1.desc;
+  const activeComponents =
+    activeProject == 2 ? project2.components : project1.components;
+  const activeTechnologies =
+    activeProject == 2 ? project2.technologies : project1.technologies;
+  const activeGithub = activeProject == 2 ? project2.github : project1.github;
 
   return (
     <section>
       <div className="layout-mobile">
-        <div className="projects-row-display-content standard-block visible center-text">
-          <h1 className="important-text">{project1.title}</h1>
+        {projectDetails.map((project, id) => (
+          <div className="projects-row-display-content standard-block visible center-text" key={id}>
+            <h1 className="important-text">{project.title}</h1>
 
-          <video key={project1.video} src={project1.video} controls />
-          <div className="projects-row-display-content-text">
-            <p>{project1.desc}</p>
-            <ul>
-              <li>
-                <b>Lessons: </b>
-                {project1.lesson}
-              </li>
-              <li>
-                <b>Status: </b>
-                {project1.status}
-              </li>
-              <li>
-                <b>Components Used: </b>
-                {project1.components}
-              </li>
-              <li>
-                <b>Technologies Used: </b>
-                {project1.technologies}
-              </li>
-            </ul>
-          </div>
-          <a href={activeGithub} target="_blank" rel="noreferrer">
+            <video key={id} src={project.video} controls />
+            <div className="projects-row-display-content-text">
+              <p>{project.desc}</p>
+              <ul>
+                <li>
+                  <b>Lessons: </b>
+                  {project.lesson}
+                </li>
+                <li>
+                  <b>Status: </b>
+                  {project.status}
+                </li>
+                <li>
+                  <b>Components Used: </b>
+                  {project.components}
+                </li>
+                <li>
+                  <b>Technologies Used: </b>
+                  {project.technologies}
+                </li>
+              </ul>
+            </div>
+            <a href={project.github} target="_blank" rel="noreferrer">
               Github
             </a>
-        </div>
-        <div className="projects-row-display-content standard-block visible center-text">
-          <h1 className="important-text">{project2.title}</h1>
-
-          <video key={project2.video} src={project2.video} controls />
-          <div className="projects-row-display-content-text">
-            <p>{project2.desc}</p>
-            <ul>
-              <li>
-                <b>Lessons: </b>
-                {project2.lesson}
-              </li>
-              <li>
-                <b>Status: </b>
-                {project2.status}
-              </li>
-              <li>
-                <b>Components Used: </b>
-                {project2.components}
-              </li>
-              <li>
-                <b>Technologies Used: </b>
-                {project2.technologies}
-              </li>
-            </ul>
           </div>
-          <a href={activeGithub} target="_blank" rel="noreferrer">
-              Github
-            </a>
-        </div>
+        ))}
       </div>
       <div className="projects-row layout-desktop">
         <ProjectCard

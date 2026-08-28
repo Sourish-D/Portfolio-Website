@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap");
 
 html,
 body,
@@ -348,7 +349,7 @@ button:focus-visible,
   width: 100%;
 }
 .ec-description {
-  text-align:left;
+  text-align: left;
 }
 .extracurricular-card img {
   aspect-ratio: 1/1;
@@ -517,6 +518,8 @@ button:focus-visible,
   gap: 30px;
 }
 .project-card {
+  appearance: none;
+  background-color: transparent;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -725,7 +728,7 @@ button:focus-visible,
     margin-left: 15%;
   }
   .certificate-display {
-    width: 183%;
+    min-width:0;
   }
   .footer {
     flex-wrap: nowrap;

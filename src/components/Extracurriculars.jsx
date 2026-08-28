@@ -18,13 +18,15 @@ const Extracurriculars = ({ title, image, description, time, award }) => {
     clearAllTimers();
     setFlashing(true);
 
-    setTimeout(() => {
-      setTransmuted((prev) => !prev);
-    }, 150);
+    timersRef.current.push(
+      setTimeout(() => {
+        setTransmuted((prev) => !prev);
+      }, 150),
 
-    setTimeout(() => {
-      setFlashing(false);
-    }, 300);
+      setTimeout(() => {
+        setFlashing(false);
+      }, 300),
+    );
   };
   return (
     <div
@@ -45,7 +47,7 @@ const Extracurriculars = ({ title, image, description, time, award }) => {
         <p className="ec-description">{description}</p>
       </div>
       <div className={`ec-block ${transmuted ? "" : "ec-closed"}`}>
-        <img src={image} />
+        <img src={image} alt="Extracurricular Image"/>
       </div>
       <button onClick={transmute}>View More</button>
     </div>

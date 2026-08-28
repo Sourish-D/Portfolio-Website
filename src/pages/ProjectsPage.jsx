@@ -85,7 +85,7 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
           { info: latestRepoName, statName: "Latest Repo" },
         ]);
       } catch (error) {
-        console.err("Error fetching GitHub data:", error);
+        console.error("Error fetching GitHub data:", error);
       }
     };
 
@@ -106,8 +106,8 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
             <CodingCard
               title="Github"
               columns={gitColumns}
-              link="https://github.com/Sourish-D"
-              username="Sourish-D"
+              link={`https://github.com/${githubUsername}`}
+              username={githubUsername}
             />
           }
           width="100%"
@@ -118,9 +118,9 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
             <CodingCard
               title="LeetCode"
               columns={leetColumns}
-              link="https://leetcode.com/u/GodCREEPERGOD/"
+              link={`https://leetcode.com/u/${leetCodeUsername}`}
               leet
-              username="GodCREEPERGOD"
+              username={leetCodeUsername}
             />
           }
           width="100%"

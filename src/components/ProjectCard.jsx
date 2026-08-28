@@ -1,11 +1,11 @@
 const ProjectCard = ({ className, title, img, lessons, status, onClick }) => {
   return (
-    <div
+    <button
       className={`project-card standard-block center-text ${className}`}
       onClick={onClick}
     >
       <h1 className="important-text">{title}</h1>
-      <img src={img} />
+      <img src={img} alt="Project Image"/>
       <p>
         <b>Lessons:</b>
         <br />
@@ -14,7 +14,7 @@ const ProjectCard = ({ className, title, img, lessons, status, onClick }) => {
       <p>
         <b>Status:</b> {status}
       </p>
-    </div>
+    </button>
   );
 };
 

@@ -39,15 +39,20 @@ To run this project locally on your machine, follow these steps:
    ```bash
    git clone [https://github.com/sourish-d/Portfolio-Website.git](https://github.com/sourish-d/Portfolio-Website.git)
    cd Portfolio-Website
-   cd my-portfolio
 2. **Install Dependencies**
 
     ```bash
     npm install
-3. **Run developmenet Server**
+3. **Run development Server**
 
     ```bash
     npm run dev
+
+For the API to connect to LASTFM, also make a .env.local file and configure the following required variables:
+
+    ```env
+    LASTFM_API_KEY=your_lastfm_api_key_here
+    LASTFM_USERNAME=your_lastfm_username_here
 
 ---
 

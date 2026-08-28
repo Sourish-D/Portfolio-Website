@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import WebDev3 from "../assets/WebDev3.png";
 import Java3 from "../assets/Java3.png";
 import ucmass from "../assets/ucmass.webp";
@@ -9,15 +9,28 @@ const Certifications = () => {
   const [index, setIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(null);
 
+  const timersRef = useRef([]);
+
+  const clearAllTimers = () => {
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
+  };
+
+  useEffect(() => {
+      return () => clearAllTimers();
+    }, []);
+
   const changeCertificate = (newIndex) => {
+    clearAllTimers();
     if (newIndex === index) return;
 
     setNextIndex(newIndex);
-
-    setTimeout(() => {
-      setIndex(newIndex);
-      setNextIndex(null);
-    }, 300);
+    timersRef.current.push(
+      setTimeout(() => {
+        setIndex(newIndex);
+        setNextIndex(null);
+      }, 300)
+    );
   };
 
   return (

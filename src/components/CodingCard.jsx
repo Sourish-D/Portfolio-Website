@@ -93,13 +93,11 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
           }
         } else {
           // --- GITHUB FETCH ---
-          console.log("fetching Github");
           const eventsUrl = `https://api.github.com/users/${username}/events/public?per_page=100`;
           const res = await fetch(eventsUrl);
 
           if (!res.ok) throw new Error("GitHub API error");
           const events = await res.json();
-          console.log("GitHub events received:", events);
 
           const daysMap = {};
           const today = new Date();
@@ -147,7 +145,7 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
     return () => {
       isMounted = false;
     };
-  }, [username, leet, loading]);
+  }, [username, leet]);
 
   return (
     <a

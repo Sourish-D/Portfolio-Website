@@ -15,7 +15,6 @@ export default async function handler(req, res) {
     const infoUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${apiKey}&format=json`;
     const topArtistsUrl = `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${apiKey}&format=json&limit=1&period=${period}`;
     const topTracksUrl = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${apiKey}&format=json&limit=1&period=${period}`;
-    // Add top albums endpoint to reliably get album artwork
     const topAlbumsUrl = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${username}&api_key=${apiKey}&format=json&limit=1&period=${period}`;
 
     const [recentRes, infoRes, artistsRes, tracksRes, albumsRes] =
@@ -51,7 +50,6 @@ export default async function handler(req, res) {
     const topArtist = artistsData.topartists?.artist?.[0]?.name || "N/A";
     const topTrack = tracksData.toptracks?.track?.[0]?.name || "N/A";
 
-    // Extract top album and its image safely from user.gettopalbums
     const topAlbumObj = albumsData.topalbums?.album?.[0];
     const topAlbumName = topAlbumObj?.name || "N/A";
     const albumImages = topAlbumObj?.image;

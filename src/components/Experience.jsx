@@ -24,7 +24,7 @@ const experiences = [
       "Led activities during volunteer programs",
       "Collaborated with teachers",
       "Planned and taught lessons",
-    ]
+    ],
   },
   {
     role: "Newspaper Delivery",
@@ -44,8 +44,8 @@ const experiences = [
       "Planned delivery routes",
       "Demonstrated reliability through independent work",
       "Maintained a high level of accuracy",
-      "Developed organizational skills"
-    ]
+      "Developed organizational skills",
+    ],
   },
   {
     role: "Model UN SOMA Delegate - Norway",
@@ -64,7 +64,7 @@ const experiences = [
       "Developed and presented policy proposals",
       "Participated in diplomatic negotiations with other delegates",
       "Strengthened public speaking, and negotiation skills",
-    ]
+    ],
   },
 ];
 
@@ -86,31 +86,32 @@ const Experience = () => {
   const swapLeft = () => {
     clearAllTimers();
     setFlashing(true);
-
-    setTimeout(() => {
-      setIndex((prevIndex) =>
-        prevIndex >= experiences.length - 1 ? 0 : prevIndex + 1,
-      );
-    }, 150);
-
-    setTimeout(() => {
-      setFlashing(false);
-    }, 300);
+    timersRef.current.push(
+      setTimeout(() => {
+        setIndex((prevIndex) =>
+          prevIndex >= experiences.length - 1 ? 0 : prevIndex + 1,
+        );
+      }, 150),
+      setTimeout(() => {
+        setFlashing(false);
+      }, 300),
+    );
   };
 
   const swapRight = () => {
     clearAllTimers();
     setFlashing(true);
+    timersRef.current.push(
+      setTimeout(() => {
+        setIndex((prevIndex) =>
+          prevIndex <= 0 ? experiences.length - 1 : prevIndex - 1,
+        );
+      }, 100),
 
-    setTimeout(() => {
-      setIndex((prevIndex) =>
-        prevIndex <= 0 ? experiences.length - 1 : prevIndex - 1,
-      );
-    }, 100);
-
-    setTimeout(() => {
-      setFlashing(false);
-    }, 300);
+      setTimeout(() => {
+        setFlashing(false);
+      }, 300),
+    );
   };
 
   return (
@@ -138,10 +139,14 @@ const Experience = () => {
       <div className="experience-right-side">
         <ul>
           {experiences[index].description.map((item, i) => (
-            <li key={i} class="desktop-view">{item}</li>
+            <li key={i} className="desktop-view">
+              {item}
+            </li>
           ))}
           {experiences[index].highlights.map((item, i) => (
-            <li key={i} class="mobile-view">{item}</li>
+            <li key={i} className="mobile-view">
+              {item}
+            </li>
           ))}
         </ul>
       </div>
