@@ -71,5 +71,3 @@ Note: The Leetcode API is still not completely fixed, the API that I used is pro
 - Framework & Built Tool: **React, Vite, and Vercel**
 - Design Inspiration: **Opus Magnum (Zachtronics)**
 - Typography: **Google Fonts**
-
-**The website is currently under development, but you're free to explore for now! Thanks for checking out my project!**
