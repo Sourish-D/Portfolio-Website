@@ -23,7 +23,7 @@ const Background = () => {
             <Extracurriculars
               title="Chess Team"
               image={chess}
-              description="A member of the school's chess team, participating in regular practices, school competitions, and tournaments. I enjoy playing competitively and working through challenging positions with the rest of the team."
+              description="A member of the school's chess team. I participated in regular practices, school competitions, and tournaments. I represented the school as a chess team member in 2023 and 2024."
               time="2023"
               award="Award: Junior Most Spirited"
             />
@@ -36,7 +36,7 @@ const Background = () => {
             <Extracurriculars
               title="Pi Club"
               image={piClub}
-              description="An executive member of Pi Club, helping prepare students for Waterloo mathematics contests through practice sessions, problem-solving, and contest preparation. I also help create and review challenging problems for other students."
+              description="An executive member of Pi Club. I helped prepare students for Waterloo mathematics contests through practice sessions, problem-solving, and contest preparation. "
               time="2023"
               award="Award: Junior Most Valuable"
             />
@@ -50,7 +50,7 @@ const Background = () => {
             <Extracurriculars
               title="Model UN"
               image={MUN}
-              description="Represented Norway in the UNODC SOMA assembly, where I researched the trafficking of cultural property and narcotic distribution and developed proposals involving technologies such as databases, AI image recognition, and blockchain."
+              description="Represented Norway in the UNODC SOMA assembly, where I researched the trafficking of cultural property and narcotic distribution across the world."
               time="2025"
               award="Delegate for Norway"
             />

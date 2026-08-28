@@ -42,7 +42,7 @@ const Extracurriculars = ({ title, image, description, time, award }) => {
         <p>
           <b>{award}</b>
         </p>
-        <p>{description}</p>
+        <p className="ec-description">{description}</p>
       </div>
       <div className={`ec-block ${transmuted ? "" : "ec-closed"}`}>
         <img src={image} />
