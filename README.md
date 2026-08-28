@@ -18,7 +18,7 @@ Interactive, Industrial-themed React / Vite Website Hosted on Vercel to display 
 
 - **Opus Magnum Theme**
 - **CSS Animations**
-- **API Integrations** with Last.FM, Leetcode, and Github
+- **API Integrations** with Last.FM, and Github
 - **Fully Responsive** across mobile, tablet, and desktop viewports
 - **Local Caching** to manage API rate limits
 
@@ -60,7 +60,9 @@ For the API to connect to LASTFM, also make a .env.local file and configure the 
 
 The project started as a vanilla HTML/CSS/JS site, but was transitioned to React and Vite to handle the growing component tree, easily re-use assets, and use more complex state logic.
 
-The integration of the Leetcode and Github APIs didn't have to be on the backend, but because of that it caused the site to call upon the API a lot more frequently, which during development, caused me to run out of tokens. To circumvent this problem, I stored the info that comes from the API into a local cache, that way when I do reload the site, it pulls from the cache rather than using those tokens all over again.
+The integration of the Leetcode and Github APIs didn't have to be on the backend, but because of that it caused the site to call upon the API a lot more frequently, which during development, caused me to run out of tokens. To circumvent this problem, I stored the info that comes from the API into a local cache, that way it pulls from the cache rather than using those tokens all over again.
+
+Note: The Leetcode API is still not completely fixed, the API that I used is prone to downtime, rate limits, and shutting down entirely so it may not display stats, or may display incorrent stats.
 
 ---
 
