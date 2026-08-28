@@ -7,7 +7,6 @@ import portfolio from "../assets/portfolio.png";
 import esp_car from "../assets/esp_car.webp";
 import EspCarVid from "../assets/EspCarVid.mp4";
 import PortfolioDevlogThree from "../assets/PortfolioDevlogThree.mp4";
-import { useState, useEffect } from "react";
 
 const projectInfo = [
   {
@@ -34,64 +33,6 @@ const projectInfo = [
   },
 ];
 const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
-  const [leetColumns, setLeetColumns] = useState([]);
-  const [gitColumns, setGitColumns] = useState([]);
-  //LeetCode API
-  useEffect(() => {
-    fetch(`https://alfa-leetcode-api.onrender.com/${leetCodeUsername}/solved`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          setLeetColumns([
-            { statName: "Total Solved: ", info: data.totalSolved || 0 },
-            { statName: "Easy: ", info: data.easySolved || 0 },
-            { statName: "Medium: ", info: data.mediumSolved || 0 },
-            { statName: "Hard: ", info: data.hardSolved || 0 },
-          ]);
-        }
-      })
-      .catch((err) => {
-        console.error("Failed to fetch LeetCode stats: ", err);
-      });
-  }, [leetCodeUsername]);
-
-  //Github API
-  useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        const userResponse = await fetch(
-          `https://api.github.com/users/${githubUsername}`,
-        );
-        const userData = await userResponse.json();
-        const eventsResponse = await fetch(
-          `https://api.github.com/users/${githubUsername}/events/public?per_page=100`,
-        );
-        const events = await eventsResponse.json();
-        const reposResponse = await fetch(
-          `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=1`,
-        );
-        const reposData = await reposResponse.json();
-        const latestRepoName =
-          Array.isArray(reposData) && reposData.length > 0
-            ? reposData[0].name
-            : "None";
-        setGitColumns([
-          {
-            info: events.length > 0 ? `${events.length}+` : "0",
-            statName: "Recent Events",
-          },
-          { info: userData.public_repos ?? 0, statName: "Repos" },
-          { info: userData.followers ?? 0, statName: "Followers" },
-          { info: latestRepoName, statName: "Latest Repo" },
-        ]);
-      } catch (error) {
-        console.error("Error fetching GitHub data:", error);
-      }
-    };
-
-    fetchGitHubData();
-  }, [githubUsername]);
-
   return (
     <main className="space-up">
       <Navbar />
@@ -105,7 +46,6 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
           element={
             <CodingCard
               title="Github"
-              columns={gitColumns}
               link={`https://github.com/${githubUsername}`}
               username={githubUsername}
             />
@@ -117,7 +57,6 @@ const ProjectsPage = ({ leetCodeUsername, githubUsername }) => {
           element={
             <CodingCard
               title="LeetCode"
-              columns={leetColumns}
               link={`https://leetcode.com/u/${leetCodeUsername}`}
               leet
               username={leetCodeUsername}

@@ -1,5 +1,16 @@
 import { useEffect, useState } from "react";
 
+const ONE_DAY = 24 * 60 * 60 * 1000;
+
+const hasValidCache = (key, timeKey) => {
+  const cachedTime = localStorage.getItem(timeKey);
+  return (
+    localStorage.getItem(key) &&
+    cachedTime &&
+    Date.now() - parseInt(cachedTime, 10) < ONE_DAY
+  );
+};
+
 const generateDefaultDays = () => {
   const days = [];
   const today = new Date();
@@ -14,33 +25,39 @@ const generateDefaultDays = () => {
   return days;
 };
 
-// Helper to check cache synchronously during initialization
-const getInitialData = (leet, username) => {
+const CodingCard = ({ title, link, leet = false, username }) => {
   const platformPrefix = leet ? "leetcode_cache_" : "github_cache_";
   const cacheKey = `${platformPrefix}${username}`;
-  const cachedData = localStorage.getItem(cacheKey);
-  const cachedTime = localStorage.getItem(`${cacheKey}_time`);
-  const oneDay = 24 * 60 * 60 * 1000;
-
-  if (
-    cachedData &&
-    cachedTime &&
-    Date.now() - parseInt(cachedTime, 10) < oneDay
-  ) {
-    try {
-      return { data: JSON.parse(cachedData), loading: false };
-    } catch {
-      // fallback if JSON parse fails
+  const cacheTimeKey = `${cacheKey}_time`;
+  const statsCacheKey = `${cacheKey}_stats`;
+  const statsCacheTimeKey = `${statsCacheKey}_time`;
+  const [contributions, setContributions] = useState(() => {
+    if (!username) return generateDefaultDays();
+    //Check if local cache exists first
+    if (hasValidCache(cacheKey, cacheTimeKey)) {
+      try {
+        return JSON.parse(localStorage.getItem(cacheKey));
+      } catch {
+        // Fallback if parse fails
+      }
     }
-  }
+    return generateDefaultDays();
+  });
 
-  return { data: generateDefaultDays(), loading: true };
-};
+  const [columns, setColumns] = useState(() => {
+    if (!username || !hasValidCache(statsCacheKey, statsCacheTimeKey)) {
+      return [];
+    }
+    try {
+      return JSON.parse(localStorage.getItem(statsCacheKey));
+    } catch {
+      return [];
+    }
+  });
 
-const CodingCard = ({ title, columns, link, leet = false, username }) => {
-  const initial = getInitialData(leet, username);
-  const [contributions, setContributions] = useState(initial.data);
-  const [loading, setLoading] = useState(initial.loading);
+  const [loading, setLoading] = useState(() => {
+    return Boolean(username) && !hasValidCache(cacheKey, cacheTimeKey);
+  });
 
   const getLevel = (count) => {
     if (count === 0) return 0;
@@ -55,21 +72,30 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
       return;
     }
 
-    const platformPrefix = leet ? "leetcode_cache_" : "github_cache_";
-    const cacheKey = `${platformPrefix}${username}`;
+    if (
+      hasValidCache(cacheKey, cacheTimeKey) &&
+      hasValidCache(statsCacheKey, statsCacheTimeKey)
+    ) {
+      return;
+    }
+
     let isMounted = true;
 
     const fetchData = async () => {
       try {
         let days = [];
+        let fetchedColumns = [];
+
         if (leet) {
-          const apiUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
-          const proxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(apiUrl)}`;
-
-          const res = await fetch(proxyUrl);
+          //Leetcode Stats
+          const res = await fetch(`/api/leetcode?username=${username}`);
           if (!res.ok) throw new Error("LeetCode API error");
-          const data = await res.json();
 
+          const { data, statColumns } = await res.json();
+
+          fetchedColumns = statColumns || [];
+
+          //Skeleton Graph + Parsing Info from API
           const rawCalendar = data.submissionCalendar || {};
           const calendarMap = {};
 
@@ -92,13 +118,15 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
             });
           }
         } else {
-          // --- GITHUB FETCH ---
-          const eventsUrl = `https://api.github.com/users/${username}/events/public?per_page=100`;
-          const res = await fetch(eventsUrl);
+          //Github Stats
+          const res = await fetch(`/api/github?username=${username}`);
 
           if (!res.ok) throw new Error("GitHub API error");
-          const events = await res.json();
+          const { data, columnStats } = await res.json();
 
+          fetchedColumns = columnStats || [];
+
+          //Initializing a skeleton & Parsing Calendar events
           const daysMap = {};
           const today = new Date();
           for (let i = 30; i >= 0; i--) {
@@ -108,8 +136,8 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
             daysMap[dateStr] = 0;
           }
 
-          if (Array.isArray(events)) {
-            events.forEach((event) => {
+          if (Array.isArray(data)) {
+            data.forEach((event) => {
               const dateStr = event.created_at.split("T")[0];
               if (daysMap[dateStr] !== undefined) {
                 daysMap[dateStr] += 1;
@@ -122,13 +150,16 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
             count: daysMap[dateStr],
           }));
         }
+
         if (!isMounted) return;
 
-        // Save to localStorage cache
         localStorage.setItem(cacheKey, JSON.stringify(days));
-        localStorage.setItem(`${cacheKey}_time`, Date.now().toString());
+        localStorage.setItem(cacheTimeKey, Date.now().toString());
+        localStorage.setItem(statsCacheKey, JSON.stringify(fetchedColumns));
+        localStorage.setItem(statsCacheTimeKey, Date.now().toString());
 
         setContributions(days);
+        setColumns(fetchedColumns);
         setLoading(false);
       } catch (err) {
         if (!isMounted) return;
@@ -142,10 +173,18 @@ const CodingCard = ({ title, columns, link, leet = false, username }) => {
     };
 
     fetchData();
+
     return () => {
       isMounted = false;
     };
-  }, [username, leet]);
+  }, [
+    username,
+    leet,
+    cacheKey,
+    cacheTimeKey,
+    statsCacheKey,
+    statsCacheTimeKey,
+  ]);
 
   return (
     <a
