@@ -28,7 +28,7 @@ const Home = () => {
             <GameCard
               title="Factorio"
               image={factorio}
-              description="Factorio is a 2D survival and simulation game about building and managing automated factories. Players crash-land on an alien planet, mine raw resources, research new technologies, build conveyor belts and logistics networks, and fight off native creatures angered by industrial pollution. The main goal is to launch a rocket into space."
+              description="Factorio is a 2D survival and simulation game about building and managing automated factories. I'm not going to lie, I haven't played this one yet. But I WILL VERY SOON! "
             />
           }
           width="100%"
@@ -41,7 +41,7 @@ const Home = () => {
             <GameCard
               title="Nomifactory"
               image={nomifactory}
-              description="Nomifactory is a quest-driven expert minecraft pack focused on building large-scale factories, where you will put your automation skills to the test as you progress from punching trees to creative-in-survival, climbing the power tiers of GregTech: Community Edition and its extension, Shadows of Greg. No complicated magic systems, no forced combat or exploration: Only Factories!"
+              description="Nomifactory is a quest-driven expert minecraft modpack. I started this in February 2026, and played it all the way to July 2026. It was a breath of fresh air from the create-focused modpacks that I used to play. In Nomifactory, the main mod is Gregtech and it's extension, Shadows of Greg."
             />
           }
           width="100%"
@@ -54,7 +54,7 @@ const Home = () => {
             <GameCard
               title="Opus Magnum"
               image={opus_magnum}
-              description="Opus Magnum is an open-ended puzzle video game developed by Zachtronics released in December 2017. Players design and program physical machinery—using programmable arms, tracks, and alchemical glyphs—on a transmutation engine to turn basic reagents into products like potions, poisons, and weapons."
+              description="Opus Magnum is an puzzle video game developed by Zachtronics. In this, you program machinery to move elements to produce results. I saw this on tiktok first and was amazed by how cool it looked. Now, it's become the visual theme of this website!"
             />
           }
           width="100%"

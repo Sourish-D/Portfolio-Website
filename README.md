@@ -3,10 +3,10 @@
 Interactive, Industrial-themed React / Vite Website Hosted on Vercel to display my Projects, Accomplishments, and Interests.
 
 <p align="center">
-    <img src="./src/assets/portfolio.png" alt="Screenshot From Website" width="400"/>
+    <img src="./src/assets/PortfolioGif.gif" alt="Screenshot From Website" width="400"/>
 </p>
 <p align="center">
-    <a href="https://sourish-d.github.io/Portfolio-Website/">Link to the Website!</a>
+    <a href="https://my-portfolio-pi-sand-83.vercel.app">Link to the Website!</a>
 </p>
 
 
