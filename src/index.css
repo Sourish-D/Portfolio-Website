@@ -347,6 +347,9 @@ button:focus-visible,
   overflow: hidden;
   width: 100%;
 }
+.ec-description {
+  text-align:left;
+}
 .extracurricular-card img {
   aspect-ratio: 1/1;
   width: 100%;
@@ -643,6 +646,8 @@ button:focus-visible,
   transition: top 0.3s ease;
 }
 .coding-card-wrapper {
+  display: block;
+  width: 100%;
   position: relative;
   text-decoration: none;
   color: black;
@@ -805,12 +810,12 @@ button:focus-visible,
   .opus-arm.card {
     width: 90%;
     left: -42%;
-    top: 48%;
+    top: 9rem;
   }
   .opus-arm.card.right {
     left: auto;
     right: -95%;
-    top: 46%;
+    top: 9rem;
   }
   .opus-arm-socket.right {
     left: auto;
@@ -821,10 +826,12 @@ button:focus-visible,
   .opus-arm-socket.card {
     width: 30%;
     left: -40%;
+    top: 9rem;
   }
   .opus-arm-socket.card.right {
     right: -40%;
     left: auto;
+    top: 9rem;
   }
   .orbit.card {
     transform-origin: -42% 48%;
@@ -881,7 +888,7 @@ button:focus-visible,
     display: none;
   }
   .coding-card-pop-up {
-    top:75%;
+    top: 75%;
   }
 }
 @media (min-width: 1124px) {
